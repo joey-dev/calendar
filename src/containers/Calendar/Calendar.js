@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Loader from '../../atomic/atoms/Loader/Loader';
-import CalendarMonthRow from '../../atomic/organisms/calendar/CalendarMonthRow';
 import CalendarTemplate from '../../atomic/templates/calendar/CalendarTemplate';
 
 class Calendar extends Component {
@@ -81,13 +80,39 @@ class Calendar extends Component {
     };
 
     clickedOnMonthHandler = (year, month) => {
+        this.changeMonth(year, month);
+    };
+
+    onRightMonthArrowClickHandler = () => {
+        let year = this.state.dateToCalculateFrom.getFullYear();
+        let nextMonth = this.state.dateToCalculateFrom.getMonth() + 1;
+        if (nextMonth === 12) {
+            nextMonth = 0;
+            year += 1;
+        }
+
+        this.changeMonth(year, nextMonth);
+    }
+
+    onLeftMonthArrowClickHandler = () => {
+        let year = this.state.dateToCalculateFrom.getFullYear();
+        let nextMonth = this.state.dateToCalculateFrom.getMonth() - 1;
+        if (nextMonth < 0) {
+            nextMonth = 11;
+            year -= 1;
+        }
+
+        this.changeMonth(year, nextMonth);
+    }
+
+    changeMonth = (year, month) => {
         const newDateToCalculateFrom = new Date(year, month + 1, 0);
 
         this.setState(
             {dateToCalculateFrom: newDateToCalculateFrom},
             this.initCalendar
         );
-    };
+    }
 
     render() {
         let calendarTemplate = (<Loader/>);
@@ -98,6 +123,8 @@ class Calendar extends Component {
                     keyOfSelectedMonth={this.state.keyOfSelectedMonth}
                     dateToCalculateFrom={this.state.dateToCalculateFrom}
                     clickedOnMonth={this.clickedOnMonthHandler}
+                    rightMonthArrowClick={this.onRightMonthArrowClickHandler}
+                    leftMonthArrowClick={this.onLeftMonthArrowClickHandler}
                 />
             );
         }

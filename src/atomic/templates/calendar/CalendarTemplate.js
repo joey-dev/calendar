@@ -1,4 +1,5 @@
 import React from 'react';
+import CalendarMonthSwitcher from '../../modecules/calendar/CalendarMonthSwitcher';
 import CalendarItems from '../../organisms/calendar/CalendarItems';
 import CalendarMonthRow from '../../organisms/calendar/CalendarMonthRow';
 import CalendarWeekDaysText from '../../organisms/calendar/CalendarWeekDaysText';
@@ -106,6 +107,11 @@ const CalendarTemplate = (props) => {
                 itemClicked={props.clickedOnMonth}
             />
             <div>
+                <CalendarMonthSwitcher
+                    monthName={props.dateToCalculateFrom.toLocaleString('default', {month: 'long'})}
+                    clickedLeftArrow={props.leftMonthArrowClick}
+                    clickedRightArrow={props.rightMonthArrowClick}
+                />
                 <CalendarWeekDaysText/>
                 {calendarItems}
             </div>
