@@ -23,7 +23,11 @@ const CalendarItem = (props) => {
 
     return (
         <StyledDiv>
-            <CalendarDayNumber thisMonth={props.thisMonth}>{props.day}</CalendarDayNumber>
+            <CalendarDayNumber
+                thisMonth={props.thisMonth}
+            >
+                {props.day}
+            </CalendarDayNumber>
             {allDateItems}
         </StyledDiv>
     );

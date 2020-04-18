@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Loader from '../../atomic/atoms/Common/Loader';
+import Loader from '../../atomic/atoms/Loader/Loader';
+import CalendarMonthRow from '../../atomic/organisms/calendar/CalendarMonthRow';
 import CalendarTemplate from '../../atomic/templates/calendar/CalendarTemplate';
 
 class Calendar extends Component {
@@ -88,6 +89,7 @@ class Calendar extends Component {
                     dates={this.state.dates}
                     thisMonth={this.state.thisMonth}
                     keyOfSelectedMonth={this.state.keyOfSelectedMonth}
+                    dateToCalculateFrom={this.state.dateToCalculateFrom}
                 />
             );
         }

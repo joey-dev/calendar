@@ -1,6 +1,16 @@
 import React from 'react';
 import CalendarItems from '../../organisms/calendar/CalendarItems';
+import CalendarMonthRow from '../../organisms/calendar/CalendarMonthRow';
 import CalendarWeekDaysText from '../../organisms/calendar/CalendarWeekDaysText';
+import styled from 'styled-components';
+
+
+const StyledDiv = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 4fr; 
+    grid-gap: 5%;
+    margin: 5%;
+`;
 
 const CalendarTemplate = (props) => {
     let daysOfThisCalendar = [];
@@ -71,10 +81,17 @@ const CalendarTemplate = (props) => {
     );
 
     return (
-        <div>
-            <CalendarWeekDaysText/>
-            {calendarItems}
-        </div>
+        <StyledDiv>
+            <CalendarMonthRow
+                totalMonths={13}
+                thisYear={props.dateToCalculateFrom.getFullYear()}
+                thisMonth={props.dateToCalculateFrom.getMonth()}
+            />
+            <div>
+                <CalendarWeekDaysText/>
+                {calendarItems}
+            </div>
+        </StyledDiv>
     );
 };
 
