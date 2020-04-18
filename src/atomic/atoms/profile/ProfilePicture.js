@@ -3,10 +3,28 @@ import React from 'react';
 import styled from 'styled-components';
 
 
+const sideToBeAligned = (props) => {
+    switch (props.aligned) {
+        case 'right':
+            return 'right';
+        case 'left':
+            return  'left';
+        case 'center':
+            return 'center';
+        default:
+            return 'inherit'
+    }
+};
+
 const StyledDiv = styled.div`
-    cursor: ${props => props.isClickable ? 'pointer' : 'default'}
-    border-radius: 20px;
+    cursor: ${props => props.isClickable ? 'pointer' : 'default'};
     overflow: hidden;
+    text-align: ${props => sideToBeAligned(props)};
+`;
+
+const StylesImg = styled.img`
+    width: 100px;
+    border-radius: 20px;
 `;
 
 const ProfilePicture = (props) => {
@@ -15,8 +33,10 @@ const ProfilePicture = (props) => {
     const image = images('./' + imageName);
 
     return (
-        <StyledDiv>
-            <img
+        <StyledDiv
+            aligned={props.aligned}
+        >
+            <StylesImg
                 src={image}
                 alt="Your profile"
                 onClick={props.clicked}

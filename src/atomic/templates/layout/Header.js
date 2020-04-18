@@ -10,6 +10,7 @@ class Header extends Component {
         return (
             <div>
                 <ProfilePicture
+                    aligned={'right'}
                     clicked={this.openProfileHandler}
                 />
             </div>
