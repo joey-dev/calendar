@@ -1,5 +1,6 @@
 import React from 'react';
 import CalendarItems from '../../organisms/calendar/CalendarItems';
+import CalendarWeekDaysText from '../../organisms/calendar/CalendarWeekDaysText';
 
 const CalendarTemplate = (props) => {
     let daysOfThisCalendar = [];
@@ -71,6 +72,7 @@ const CalendarTemplate = (props) => {
 
     return (
         <div>
+            <CalendarWeekDaysText/>
             {calendarItems}
         </div>
     );

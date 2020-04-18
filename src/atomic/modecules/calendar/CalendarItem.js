@@ -1,12 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import CalendarDateItem from '../../atoms/calendar/CalendarDateItem';
-
-const StyledDayNumber = styled.p`
-    margin-top: 5px;
-    text-align: center;
-    color: ${(props) => props.thisMonth ? 'black' : 'grey'}
-`;
+import CalendarDayNumber from '../../atoms/calendar/CalendarDayNumber';
 
 const StyledDiv = styled.div`
     border: 1px solid black;
@@ -28,7 +23,7 @@ const CalendarItem = (props) => {
 
     return (
         <StyledDiv>
-            <StyledDayNumber thisMonth={props.thisMonth}>{props.day}</StyledDayNumber>
+            <CalendarDayNumber thisMonth={props.thisMonth}>{props.day}</CalendarDayNumber>
             {allDateItems}
         </StyledDiv>
     );

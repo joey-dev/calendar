@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Loader from '../../atomic/atoms/Common/Loader';
 import CalendarTemplate from '../../atomic/templates/calendar/CalendarTemplate';
 
 class Calendar extends Component {
@@ -80,7 +81,7 @@ class Calendar extends Component {
     };
 
     render() {
-        let calendarTemplate;
+        let calendarTemplate = (<Loader/>);
         if (this.state.thisMonth && this.state.dates && this.state.keyOfSelectedMonth) {
             calendarTemplate = (
                 <CalendarTemplate
