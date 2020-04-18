@@ -1,13 +1,16 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Calendar from './containers/Calendar/Calendar';
+import Layout from './components/layouts/Layout/Layout';
+import Calendar from './pages/Calendar/Calendar';
 
 function App() {
     return (
         <BrowserRouter>
-            <Switch>
-                <Route path="/" exact component={Calendar}/>
-            </Switch>
+            <Layout>
+                <Switch>
+                    <Route path="/" exact component={Calendar}/>
+                </Switch>
+            </Layout>
         </BrowserRouter>
     );
 }

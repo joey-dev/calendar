@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import ArrowLeft from '../../atoms/Arrows/ArrowLeft';
-import ArrowRight from '../../atoms/Arrows/ArrowRight';
+import ArrowLeft from '../../atoms/arrows/ArrowLeft';
+import ArrowRight from '../../atoms/arrows/ArrowRight';
 import styled from 'styled-components';
 
 
