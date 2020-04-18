@@ -10,10 +10,17 @@ const StyledContainer = styled.div`
 `;
 
 const CalendarItems = (props) => {
+    const thisMonth = new Date().getMonth();
+
     return (
         <StyledContainer>
             {props.dates.map((date, index) => (
-                <CalendarItem key={index} day={date.day} thisMonth={date.thisMonth} items={date.items} />
+                <CalendarItem
+                    key={index}
+                    day={date.date.day}
+                    thisMonth={date.date.month === thisMonth}
+                    items={date.items}
+                />
             ))}
         </StyledContainer>
     );

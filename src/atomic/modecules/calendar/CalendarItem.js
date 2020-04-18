@@ -16,7 +16,11 @@ const CalendarItem = (props) => {
     let allDateItems;
     if (props.items && props.items.length > 0) {
         allDateItems = props.items.map((dateItem, index) => (
-            <CalendarDateItem key={index} time={dateItem.time} colouredBackground={index % 2 === 0}>
+            <CalendarDateItem
+                key={index}
+                time={dateItem.time}
+                colouredBackground={index % 2 === 0}
+            >
                 {dateItem.title}
             </CalendarDateItem>
         ));
