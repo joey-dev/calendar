@@ -61,14 +61,30 @@ const CalendarTemplate = (props) => {
         }
     }
 
-    if (daysOfThisCalendar.length !== 0) {
+    let dayKeyOfNextMonth = 0;
+    if (daysOfThisWeek.length !== 0) {
         const datePropOfNextMonth = props.dates[props.keyOfSelectedMonth + 1];
-        let dayKey = 0;
-        for (let dayOfCalendarKey = daysOfThisCalendar.length; dayOfCalendarKey < 7; dayOfCalendarKey++) {
-            daysOfThisWeek.push(datePropOfNextMonth[dayKey]);
-            dayKey++;
+        const lengthOFTheDaysOfThisWeek = daysOfThisWeek.length;
+
+        for (let dayOfCalendarKey = lengthOFTheDaysOfThisWeek; dayOfCalendarKey < 7; dayOfCalendarKey++) {
+            daysOfThisWeek.push(datePropOfNextMonth[dayKeyOfNextMonth]);
+            dayKeyOfNextMonth++;
         }
         daysOfThisCalendar.push(daysOfThisWeek);
+    }
+
+    const daysOfThisCalendarLength = daysOfThisCalendar.length
+    if (daysOfThisCalendarLength < 6) {
+        daysOfThisWeek = [];
+        const datePropOfNextMonth = props.dates[props.keyOfSelectedMonth + 1];
+
+        for (let totalWeeksInTheCalendar = daysOfThisCalendarLength; totalWeeksInTheCalendar < 6; totalWeeksInTheCalendar++) {
+            for (let dayOfCalendarKey = 0; dayOfCalendarKey < 7; dayOfCalendarKey++) {
+                daysOfThisWeek.push(datePropOfNextMonth[dayKeyOfNextMonth]);
+                dayKeyOfNextMonth++;
+            }
+            daysOfThisCalendar.push(daysOfThisWeek);
+        }
     }
 
     const calendarItems = (
@@ -76,6 +92,7 @@ const CalendarTemplate = (props) => {
             <CalendarItems
                 key={key}
                 dates={days}
+                thisMonth={props.dateToCalculateFrom.getMonth()}
             />
         ))
     );
@@ -86,6 +103,7 @@ const CalendarTemplate = (props) => {
                 totalMonths={13}
                 thisYear={props.dateToCalculateFrom.getFullYear()}
                 thisMonth={props.dateToCalculateFrom.getMonth()}
+                itemClicked={props.clickedOnMonth}
             />
             <div>
                 <CalendarWeekDaysText/>

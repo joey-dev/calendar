@@ -13,18 +13,26 @@ const backGroundColorOfStyledP = (props) => {
 }
 
 const StyledP = styled.p`
-    height: calc(100% / 13 - calc(70% / 13));
     padding: calc(100% / 13);
     margin: 0;
     text-align: center;
     background-color: ${(props) => backGroundColorOfStyledP(props)};
+    
+    &:hover {
+        background-color: #717171;
+        cursor: pointer;
+    }
 `;
 
 const CalendarMonthItem = (props) => {
     const monthInName = new Date(props.year, props.month + 1, 0).toLocaleString('default', {month: 'long'})
 
     return (
-        <StyledP thisMonth={props.thisMonth} alternativeColor={props.alternativeColor}>
+        <StyledP
+            thisMonth={props.thisMonth}
+            alternativeColor={props.alternativeColor}
+            onClick={() => props.clicked(props.year, props.month)}
+        >
             {monthInName} - {props.year}
         </StyledP>
     );
@@ -33,7 +41,7 @@ const CalendarMonthItem = (props) => {
 CalendarMonthItem.propTypes = {
     month: PropTypes.number.isRequired,
     year: PropTypes.number.isRequired,
-    thisMonth: PropTypes.bool.isRequired,
+    thisMonth: PropTypes.bool,
     alternativeColor: PropTypes.bool,
 };
 

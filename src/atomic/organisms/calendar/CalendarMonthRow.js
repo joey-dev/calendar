@@ -8,7 +8,10 @@ const StyledDiv = styled.div`
     width: 100%;
     border: 1px solid black;
     border-radius: 20px;
-    overflow: hidden
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: 1fr;
 `;
 
 const CalendarMonthRow = (props) => {
@@ -72,6 +75,7 @@ const CalendarMonthRow = (props) => {
             year={monthAndYear.year}
             thisMonth={false}
             alternativeColor={key % 2 === 1}
+            clicked={props.itemClicked}
         />
     ));
 
@@ -82,6 +86,7 @@ const CalendarMonthRow = (props) => {
             year={monthAndYear.year}
             thisMonth={false}
             alternativeColor={key % 2 === 0}
+            clicked={props.itemClicked}
         />
     ));
 

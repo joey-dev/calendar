@@ -5,7 +5,6 @@ import CalendarTemplate from '../../atomic/templates/calendar/CalendarTemplate';
 
 class Calendar extends Component {
     state = {
-        thisMonth: '',
         dates: [],
         keyOfSelectedMonth: 0,
         dateToCalculateFrom: undefined,
@@ -15,7 +14,7 @@ class Calendar extends Component {
         const date = new Date();
         this.setState(
             {
-                thisMonth: date.getMonth(), dateToCalculateFrom: date,
+                dateToCalculateFrom: date,
             },
             this.initCalendar,
         );
@@ -81,15 +80,24 @@ class Calendar extends Component {
         return new Date(year, month + 1, 0).getDate();
     };
 
+    clickedOnMonthHandler = (year, month) => {
+        const newDateToCalculateFrom = new Date(year, month + 1, 0);
+
+        this.setState(
+            {dateToCalculateFrom: newDateToCalculateFrom},
+            this.initCalendar
+        );
+    };
+
     render() {
         let calendarTemplate = (<Loader/>);
-        if (this.state.thisMonth && this.state.dates && this.state.keyOfSelectedMonth) {
+        if (this.state.dates && this.state.keyOfSelectedMonth) {
             calendarTemplate = (
                 <CalendarTemplate
                     dates={this.state.dates}
-                    thisMonth={this.state.thisMonth}
                     keyOfSelectedMonth={this.state.keyOfSelectedMonth}
                     dateToCalculateFrom={this.state.dateToCalculateFrom}
+                    clickedOnMonth={this.clickedOnMonthHandler}
                 />
             );
         }
