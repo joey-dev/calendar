@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React from 'react';
+import React, { Fragment } from 'react';
 import styled from 'styled-components';
 
 
@@ -7,7 +7,7 @@ const StyledInput = styled.input`
     width: 100%;
 `;
 
-const StyledTextarea = styled.input`
+const StyledTextarea = styled.textarea`
     width: 100%;
 `;
 
@@ -28,21 +28,34 @@ const Input = (props) => {
             inputType = 'input';
     }
 
+    const itemsToAddToInput = {
+        name: props.name,
+        id: props.name,
+        onChange: props.changed,
+    }
+
+
+    const input = (inputType === 'input' ? (
+        <StyledInput
+            type={props.type}
+            {...itemsToAddToInput}
+        />
+    ) : (
+        <StyledTextarea
+            {...itemsToAddToInput}
+        />
+    ))
+
     return (
-        {inputType === 'input' ? (
-            <StyledInput
-
-            />
-        ) : (
-            <StyledTextarea
-
-            />
-        )}
+        <Fragment>
+            {input}
+        </Fragment>
     )
 };
 
 Input.propTypes = {
     type: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
+    clicked: PropTypes.func,
 };
 export default Input;
