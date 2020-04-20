@@ -2,29 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="328f7e78-a86c-44d6-ba1d-ecdef45f264a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.htaccess" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/asset-manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logo192.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/logo512.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/precache-manifest.351d810d1758584ee30dd7741175accf.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/robots.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-worker.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/main.5ecd60fb.chunk.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/css/main.5ecd60fb.chunk.css.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/2.12ca87e1.chunk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/2.12ca87e1.chunk.js.LICENSE.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/2.12ca87e1.chunk.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/main.3dd5dbe6.chunk.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/main.3dd5dbe6.chunk.js.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/runtime-main.efaabfef.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/runtime-main.efaabfef.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api/config/routes.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/api/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spa/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/spa/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -174,15 +153,33 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/api" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.YAML" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/api" />
       <recent name="$PROJECT_DIR$" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/spa/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.build" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -196,7 +193,7 @@
       <updated>1587285322853</updated>
       <workItem from="1587285324034" duration="5352000" />
       <workItem from="1587309656628" duration="5481000" />
-      <workItem from="1587315927266" duration="10579000" />
+      <workItem from="1587315927266" duration="11272000" />
     </task>
     <servers />
   </component>
@@ -223,6 +220,22 @@
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2662" y="311" width="424" height="491" key="FileChooserDialogImpl/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1587312510075" />
+    <state width="1920" height="307" key="GridCell.Tab.0.bottom" timestamp="1587369087459">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1920" height="307" key="GridCell.Tab.0.bottom/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1587369087459" />
+    <state width="1920" height="307" key="GridCell.Tab.0.center" timestamp="1587369087459">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1920" height="307" key="GridCell.Tab.0.center/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1587369087459" />
+    <state width="1920" height="307" key="GridCell.Tab.0.left" timestamp="1587369087459">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1920" height="307" key="GridCell.Tab.0.left/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1587369087459" />
+    <state width="1920" height="307" key="GridCell.Tab.0.right" timestamp="1587369087459">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state width="1920" height="307" key="GridCell.Tab.0.right/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1587369087459" />
     <state x="2693" y="477" width="364" height="160" key="NewPhpFileDialog" timestamp="1587326376994">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
@@ -243,9 +256,9 @@
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2543" y="259" width="672" height="678" key="search.everywhere.popup/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1587367297118" />
-    <state x="2605" y="465" width="540" height="183" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1587327160955">
+    <state x="2605" y="465" width="540" height="183" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1587368697912">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="2605" y="465" width="540" height="183" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1587327160955" />
+    <state x="2605" y="465" width="540" height="183" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1587368697912" />
   </component>
 </project>
