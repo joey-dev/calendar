@@ -6,7 +6,7 @@ import Login from './pages/Login/Login';
 
 function App() {
     return (
-        <BrowserRouter basename="spa/build/">
+        <BrowserRouter basename="/">
             <Layout>
                 <Switch>
                     <Route path="/login" exact component={Login}/>

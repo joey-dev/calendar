@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import LoginTemplate from '../../atomic/templates/login/LoginTemplate';
+import Axios from '../../axios-orders';
+
 
 class Login extends Component {
     state = {
@@ -23,20 +25,33 @@ class Login extends Component {
 
     onSubmitHandler = (event) => {
         event.preventDefault();
-
-        if (this.state.user.email === "Jhon@test.test" && this.state.user.password === "test123") {
-            const userDetails = {
-                username: "Jhon",
-                firstName: "Jhon",
-                lastName: "Smith",
-                email: this.state.user.email,
-                password: undefined,
-                token: 12345
-            };
-            this.showLoginSuccess(userDetails);
-        } else {
-            this.showLoginFailed();
+        const requestData = {
+            "username": this.state.user.email,
+            "password": this.state.user.password,
         }
+        console.log(requestData);
+
+        Axios.post('login_check/', requestData)
+            .then(success => {
+                console.log(success);
+            })
+            .catch(error => {
+                console.log(error);
+            })
+
+        // if (this.state.user.email === "Jhon@test.test" && this.state.user.password === "test123") {
+        //     const userDetails = {
+        //         username: "Jhon",
+        //         firstName: "Jhon",
+        //         lastName: "Smith",
+        //         email: this.state.user.email,
+        //         password: undefined,
+        //         token: 12345
+        //     };
+        //     this.showLoginSuccess(userDetails);
+        // } else {
+        //     this.showLoginFailed();
+        // }
     }
 
     onInputChangeHandler = (event) => {
