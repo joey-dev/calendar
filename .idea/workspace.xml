@@ -2,32 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="328f7e78-a86c-44d6-ba1d-ecdef45f264a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/config/packages/api_platform.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/config/packages/lexik_jwt_authentication.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/config/packages/nelmio_cors.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/config/routes/api_platform.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/config/routes/jwy.yaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/DataFixtures/AppFixtures.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/Entity/User.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/EventListener/AuthenticationSuccessListener.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/Migrations/Version20200419170159.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/Repository/UserRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api/src/Security/Guard/JWTTokenAuthenticator.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Calendar.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Calendar.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.htaccess" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/asset-manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logo192.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/logo512.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/precache-manifest.351d810d1758584ee30dd7741175accf.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/robots.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-worker.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/css/main.5ecd60fb.chunk.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/css/main.5ecd60fb.chunk.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/js/2.12ca87e1.chunk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/js/2.12ca87e1.chunk.js.LICENSE.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/js/2.12ca87e1.chunk.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/js/main.3dd5dbe6.chunk.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/js/main.3dd5dbe6.chunk.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/js/runtime-main.efaabfef.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/js/runtime-main.efaabfef.js.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/.env" beforeDir="false" afterPath="$PROJECT_DIR$/api/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/api/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/api/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/api/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/config/bundles.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api/config/services.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/api/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api/config/routes.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/spa/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/spa/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spa/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/spa/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spa/src/pages/Login/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/spa/src/pages/Login/Login.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,9 +174,15 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Learning/Udemy/Symfony/symfony-api-platform-reactjs-full-stack-masterclass/StartOver" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.YAML" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -192,7 +196,7 @@
       <updated>1587285322853</updated>
       <workItem from="1587285324034" duration="5352000" />
       <workItem from="1587309656628" duration="5481000" />
-      <workItem from="1587315927266" duration="6772000" />
+      <workItem from="1587315927266" duration="10579000" />
     </task>
     <servers />
   </component>
@@ -231,14 +235,14 @@
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="498" height="447" key="SwitcherDM/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1587326493399" />
-    <state x="2576" y="272" width="607" height="590" key="find.popup" timestamp="1587362885264">
+    <state x="2576" y="272" width="783" height="590" key="find.popup" timestamp="1587367887762">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="2576" y="272" width="607" height="590" key="find.popup/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1587362885264" />
-    <state x="2543" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1587362746008">
+    <state x="2576" y="272" width="783" height="590" key="find.popup/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1587367887762" />
+    <state x="2543" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1587367297118">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
-    <state x="2543" y="259" width="672" height="678" key="search.everywhere.popup/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1587362746008" />
+    <state x="2543" y="259" width="672" height="678" key="search.everywhere.popup/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1587367297118" />
     <state x="2605" y="465" width="540" height="183" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1587327160955">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>

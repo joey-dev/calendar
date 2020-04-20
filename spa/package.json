@@ -16,7 +16,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build; sudo cp -rf build/. ../",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -35,5 +35,5 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "http://localhost/Projects/Calendar"
+  "homepage": "http://localhost"
 }
