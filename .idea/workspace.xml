@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="328f7e78-a86c-44d6-ba1d-ecdef45f264a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/api/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spa/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/spa/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spa/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/spa/src/App.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -193,7 +192,7 @@
       <updated>1587285322853</updated>
       <workItem from="1587285324034" duration="5352000" />
       <workItem from="1587309656628" duration="5481000" />
-      <workItem from="1587315927266" duration="11272000" />
+      <workItem from="1587315927266" duration="13518000" />
     </task>
     <servers />
   </component>
@@ -248,6 +247,10 @@
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="498" height="447" key="SwitcherDM/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1587326493399" />
+    <state x="2662" y="171" width="425" height="772" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1587370757218">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2662" y="171" width="425" height="772" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1587370757218" />
     <state x="2576" y="272" width="783" height="590" key="find.popup" timestamp="1587367887762">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
