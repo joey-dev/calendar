@@ -29,6 +29,9 @@
       <excludeFolder url="file://$MODULE_DIR$/api/vendor/egulias/email-validator" />
       <excludeFolder url="file://$MODULE_DIR$/api/vendor/fig/link-util" />
       <excludeFolder url="file://$MODULE_DIR$/api/vendor/jdorn/sql-formatter" />
+      <excludeFolder url="file://$MODULE_DIR$/api/vendor/laminas/laminas-code" />
+      <excludeFolder url="file://$MODULE_DIR$/api/vendor/laminas/laminas-eventmanager" />
+      <excludeFolder url="file://$MODULE_DIR$/api/vendor/laminas/laminas-zendframework-bridge" />
       <excludeFolder url="file://$MODULE_DIR$/api/vendor/lcobucci/jwt" />
       <excludeFolder url="file://$MODULE_DIR$/api/vendor/lexik/jwt-authentication-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/api/vendor/monolog/monolog" />
@@ -118,6 +121,7 @@
       <excludeFolder url="file://$MODULE_DIR$/api/vendor/symfony/yaml" />
       <excludeFolder url="file://$MODULE_DIR$/api/vendor/twig/extra-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/api/vendor/twig/twig" />
+      <excludeFolder url="file://$MODULE_DIR$/api/vendor/webimpress/safe-writer" />
       <excludeFolder url="file://$MODULE_DIR$/api/vendor/webmozart/assert" />
       <excludeFolder url="file://$MODULE_DIR$/api/vendor/willdurand/negotiation" />
       <excludeFolder url="file://$MODULE_DIR$/api/vendor/zendframework/zend-code" />

@@ -118,6 +118,10 @@
       <path value="$PROJECT_DIR$/api/vendor/fig/link-util" />
       <path value="$PROJECT_DIR$/api/vendor/doctrine/data-fixtures" />
       <path value="$PROJECT_DIR$/api/vendor/doctrine/doctrine-fixtures-bundle" />
+      <path value="$PROJECT_DIR$/api/vendor/laminas/laminas-eventmanager" />
+      <path value="$PROJECT_DIR$/api/vendor/laminas/laminas-zendframework-bridge" />
+      <path value="$PROJECT_DIR$/api/vendor/laminas/laminas-code" />
+      <path value="$PROJECT_DIR$/api/vendor/webimpress/safe-writer" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.2" />

@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="328f7e78-a86c-44d6-ba1d-ecdef45f264a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spa/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/spa/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spa/src/axios-orders.js" beforeDir="false" afterPath="$PROJECT_DIR$/spa/src/axios-orders.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spa/src/pages/Login/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/spa/src/pages/Login/Login.js" afterDir="false" />
-    </list>
+    <list default="true" id="328f7e78-a86c-44d6-ba1d-ecdef45f264a" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -138,6 +132,10 @@
       <path value="$PROJECT_DIR$/api/vendor/fig/link-util" />
       <path value="$PROJECT_DIR$/api/vendor/doctrine/data-fixtures" />
       <path value="$PROJECT_DIR$/api/vendor/doctrine/doctrine-fixtures-bundle" />
+      <path value="$PROJECT_DIR$/api/vendor/laminas/laminas-eventmanager" />
+      <path value="$PROJECT_DIR$/api/vendor/laminas/laminas-zendframework-bridge" />
+      <path value="$PROJECT_DIR$/api/vendor/laminas/laminas-code" />
+      <path value="$PROJECT_DIR$/api/vendor/webimpress/safe-writer" />
     </include_path>
   </component>
   <component name="ProjectId" id="1akh6Oi0cQqSNGhDCNxBLJTxjrq" />
@@ -155,7 +153,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Learning/Udemy/Symfony/symfony-api-platform-reactjs-full-stack-masterclass" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
@@ -197,6 +195,7 @@
       <workItem from="1587285324034" duration="5352000" />
       <workItem from="1587309656628" duration="5481000" />
       <workItem from="1587315927266" duration="21245000" />
+      <workItem from="1587396719266" duration="310000" />
     </task>
     <servers />
   </component>
