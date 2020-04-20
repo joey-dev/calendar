@@ -2,61 +2,39 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="328f7e78-a86c-44d6-ba1d-ecdef45f264a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/robots.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/images/profilePictures/noPicture.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/atomic/atoms/Loader/Loader.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/atomic/atoms/arrows/ArrowLeft.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/atomic/atoms/arrows/ArrowRight.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/atomic/atoms/button/Button.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/atomic/atoms/calendar/CalendarDateItem.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/atomic/atoms/calendar/CalendarDayNumber.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/atomic/atoms/calendar/CalendarMonthItem.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/atomic/atoms/calendar/CalendarRowContainer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/atomic/atoms/calendar/CalendarWeekDayText.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/atomic/atoms/input/Input.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/atomic/atoms/input/Label.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/atomic/atoms/profile/ProfilePicture.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/atomic/modecules/calendar/CalendarItem.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/atomic/modecules/calendar/CalendarMonthSwitcher.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/atomic/modecules/calendar/CalendarWeekDayTextBox.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/atomic/modecules/input/FullInput.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/atomic/organisms/calendar/CalendarItems.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/atomic/organisms/calendar/CalendarMonthRow.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/atomic/organisms/calendar/CalendarWeekDaysText.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/atomic/templates/calendar/CalendarTemplate.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/atomic/templates/layout/Header.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/atomic/templates/login/LoginTemplate.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/axios-orders.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/layouts/Layout/Layout.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Calendar/Calendar.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Login/Login.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Profile/Profile.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/serviceWorker.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/setupTests.js" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/config/packages/api_platform.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/config/packages/lexik_jwt_authentication.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/config/packages/nelmio_cors.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/config/routes/api_platform.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/config/routes/jwy.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/DataFixtures/AppFixtures.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/Entity/User.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/EventListener/AuthenticationSuccessListener.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/Migrations/Version20200419170159.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/Repository/UserRepository.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/src/Security/Guard/JWTTokenAuthenticator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Calendar.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Calendar.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/.env" beforeDir="false" afterPath="$PROJECT_DIR$/api/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/api/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/api/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/api/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/api/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/api/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/api/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spa/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/spa/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spa/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/spa/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spa/src/pages/Login/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/spa/src/pages/Login/Login.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/api/composer.json</pharConfigPath>
     <execution />
   </component>
@@ -171,19 +149,36 @@
       <path value="$PROJECT_DIR$/api/vendor/psr/event-dispatcher" />
       <path value="$PROJECT_DIR$/api/vendor/psr/log" />
       <path value="$PROJECT_DIR$/api/vendor/psr/cache" />
+      <path value="$PROJECT_DIR$/api/vendor/lcobucci/jwt" />
+      <path value="$PROJECT_DIR$/api/vendor/lexik/jwt-authentication-bundle" />
+      <path value="$PROJECT_DIR$/api/vendor/namshi/jose" />
+      <path value="$PROJECT_DIR$/api/vendor/willdurand/negotiation" />
+      <path value="$PROJECT_DIR$/api/vendor/nelmio/cors-bundle" />
+      <path value="$PROJECT_DIR$/api/vendor/api-platform/api-pack" />
+      <path value="$PROJECT_DIR$/api/vendor/api-platform/core" />
+      <path value="$PROJECT_DIR$/api/vendor/fig/link-util" />
+      <path value="$PROJECT_DIR$/api/vendor/doctrine/data-fixtures" />
+      <path value="$PROJECT_DIR$/api/vendor/doctrine/doctrine-fixtures-bundle" />
     </include_path>
   </component>
   <component name="ProjectId" id="1akh6Oi0cQqSNGhDCNxBLJTxjrq" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Learning/Udemy/Symfony/symfony-api-platform-reactjs-full-stack-masterclass/StartOver" />
+    <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.YAML" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -195,11 +190,58 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1587285322853</updated>
-      <workItem from="1587285324034" duration="363000" />
+      <workItem from="1587285324034" duration="5352000" />
+      <workItem from="1587309656628" duration="5481000" />
+      <workItem from="1587315927266" duration="6772000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2676" y="230" width="398" height="653" key="#com.intellij.ide.util.MemberChooser" timestamp="1587316445688">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2676" y="230" width="398" height="653" key="#com.intellij.ide.util.MemberChooser/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1587316445688" />
+    <state x="1920" y="27" width="436" height="1053" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1587310316178">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="1920" y="27" width="436" height="1053" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1587310316178" />
+    <state x="2613" y="311" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1587316560160">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2613" y="311" width="524" height="491" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1587316560160" />
+    <state x="2662" y="311" width="424" height="491" key="FileChooserDialogImpl" timestamp="1587312510075">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2662" y="311" width="424" height="491" key="FileChooserDialogImpl/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1587312510075" />
+    <state x="2693" y="477" width="364" height="160" key="NewPhpFileDialog" timestamp="1587326376994">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2693" y="477" width="364" height="160" key="NewPhpFileDialog/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1587326376994" />
+    <state x="2376" y="188" width="1007" height="737" key="SettingsEditor" timestamp="1587316907411">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2376" y="188" width="1007" height="737" key="SettingsEditor/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1587316907411" />
+    <state width="498" height="447" key="SwitcherDM" timestamp="1587326493399">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state width="498" height="447" key="SwitcherDM/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1587326493399" />
+    <state x="2576" y="272" width="607" height="590" key="find.popup" timestamp="1587362885264">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2576" y="272" width="607" height="590" key="find.popup/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1587362885264" />
+    <state x="2543" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1587362746008">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2543" y="259" width="672" height="678" key="search.everywhere.popup/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1587362746008" />
+    <state x="2605" y="465" width="540" height="183" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1587327160955">
+      <screen x="1920" y="0" width="1920" height="1080" />
+    </state>
+    <state x="2605" y="465" width="540" height="183" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/1920.0.1920.1080/0.27.1920.1053@1920.0.1920.1080" timestamp="1587327160955" />
   </component>
 </project>

@@ -50,6 +50,8 @@ class Login extends Component {
             case 'password':
                 password = event.target.value;
                 break;
+            default:
+                return;
         }
 
         this.setState({user: {email, password}})
