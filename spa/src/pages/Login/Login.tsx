@@ -1,39 +1,42 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import LoginTemplate from '../../atomic/templates/login/LoginTemplate';
 import Axios from '../../services/Axios/AxiosConfig';
 import { User } from '../../interfaces/User';
 import { AnyInputOnChange, FormOnSubmit } from '../../config/formTypes/FormEvents';
 
-class Login extends Component {
-    state = {
-        loggedIn: false,
-        user: {
-            email: undefined,
-            password: undefined,
-        },
-    };
+type UseLoginData = {
+    email: string | undefined;
+    password: string | undefined;
+};
 
-    showLoginSuccess = (userDetails: User): void => {
-        console.log('login succeeded!');
-        localStorage.setItem('userDetails', JSON.stringify(userDetails));
+const Login: React.FC = () => {
+    // const [loggedIn, setLoggedIn] = useState(false);
+    const [user, setUser] = useState<UseLoginData>({
+        email: undefined,
+        password: undefined,
+    });
 
-        const userDetailsLocalStorage = localStorage.getItem('userDetails');
-        if (userDetailsLocalStorage) {
-            console.log(JSON.parse(userDetailsLocalStorage));
-        } else {
-            console.log('[Login] Error with user details');
-        }
-    };
+    // const showLoginSuccess = (userDetails: User): void => {
+    //     console.log('login succeeded!');
+    //     localStorage.setItem('userDetails', JSON.stringify(userDetails));
+    //
+    //     const userDetailsLocalStorage = localStorage.getItem('userDetails');
+    //     if (userDetailsLocalStorage) {
+    //         console.log(JSON.parse(userDetailsLocalStorage));
+    //     } else {
+    //         console.log('[Login] Error with user details');
+    //     }
+    // };
+    //
+    // const showLoginFailed = (): void => {
+    //     console.log('login failed');
+    // };
 
-    showLoginFailed = (): void => {
-        console.log('login failed');
-    };
-
-    onSubmitHandler = (event: FormOnSubmit) => {
+    const onSubmitHandler = (event: FormOnSubmit) => {
         event.preventDefault();
         const requestData = {
-            username: this.state.user.email,
-            password: this.state.user.password,
+            username: user.email,
+            password: user.password,
         };
         console.log(requestData);
 
@@ -60,9 +63,9 @@ class Login extends Component {
         // }
     };
 
-    onInputChangeHandler = (event: AnyInputOnChange) => {
-        let email: string | undefined = this.state.user.email;
-        let password: string | undefined = this.state.user.password;
+    const onInputChangeHandler = (event: AnyInputOnChange) => {
+        let email: string | undefined = user.email;
+        let password: string | undefined = user.password;
 
         switch (event.target.name) {
             case 'email':
@@ -75,12 +78,10 @@ class Login extends Component {
                 return;
         }
 
-        this.setState({ user: { email, password } });
+        setUser({ email, password });
     };
 
-    render() {
-        return <LoginTemplate onSubmit={this.onSubmitHandler} onInputChange={this.onInputChangeHandler} />;
-    }
-}
+    return <LoginTemplate onSubmit={onSubmitHandler} onInputChange={onInputChangeHandler} />;
+};
 
 export default Login;

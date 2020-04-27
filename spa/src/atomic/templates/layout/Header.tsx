@@ -1,16 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ProfilePicture from '../../atoms/profile/ProfilePicture';
 
-class Header extends Component {
-    openProfileHandler = () => {};
+const Header: React.FC = () => {
+    const openProfileHandler = () => {};
 
-    render() {
-        return (
-            <div>
-                <ProfilePicture aligned={'right'} clicked={this.openProfileHandler} />
-            </div>
-        );
-    }
-}
+    return (
+        <div>
+            <ProfilePicture aligned={'right'} clicked={openProfileHandler} />
+        </div>
+    );
+};
 
 export default Header;

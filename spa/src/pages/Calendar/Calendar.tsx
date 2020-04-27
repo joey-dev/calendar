@@ -1,54 +1,17 @@
-import React, { Component } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import Loader from '../../atomic/atoms/Loader/Loader';
 import CalendarTemplate from '../../atomic/templates/calendar/CalendarTemplate';
 import { FormattedDate, FormattedMonthWithWeeks, FormattedWeek } from '../../interfaces/Date';
 
-class Calendar extends Component {
-    state = {
-        dates: [],
-        keyOfSelectedMonth: 0,
-        dateToCalculateFrom: new Date(),
-    };
+const Calendar: React.FC = () => {
+    const [dates, setDates] = useState<FormattedMonthWithWeeks>([]);
+    const [keyOfSelectedMonth, setKeyOfSelectedMonth] = useState(0);
+    const [dateToCalculateFrom, setDateToCalculateFrom] = useState(new Date());
 
-    componentDidMount = (): void => {
-        this.setState({ dateToCalculateFrom: new Date() }, this.initCalendar);
-    };
-
-    initCalendar = (): void => {
-        const dateNow = this.state.dateToCalculateFrom;
-        const dateLastMonth = this.getDateOfLastMonth(dateNow);
-        const dateNextMonth = this.getDateOfNextMonth(dateNow);
-
-        const monthsToLoad = [dateLastMonth, dateNow, dateNextMonth];
-
-        let allNewDates: FormattedMonthWithWeeks = [];
-        monthsToLoad.forEach(dateToLoad => {
-            allNewDates.push(this.addNewDateToArray(dateToLoad));
-        });
-
-        this.setState({ dates: allNewDates, keyOfSelectedMonth: 1 });
-    };
-
-    getDateOfLastMonth = (dateNow: Date): Date => {
-        if (dateNow.getMonth() === 0) {
-            return new Date(dateNow.getFullYear() - 1, 11, 1);
-        } else {
-            return new Date(dateNow.getFullYear(), dateNow.getMonth() - 1, 1);
-        }
-    };
-
-    getDateOfNextMonth = (dateNow: Date): Date => {
-        if (dateNow.getMonth() === 11) {
-            return new Date(dateNow.getFullYear() + 1, 0, 1);
-        } else {
-            return new Date(dateNow.getFullYear(), dateNow.getMonth() + 1, 1);
-        }
-    };
-
-    addNewDateToArray = (dateToLoad: Date): FormattedWeek => {
+    const addNewDateToArray = useCallback((dateToLoad: Date): FormattedWeek => {
         const month = dateToLoad.getMonth();
         const year = dateToLoad.getFullYear();
-        const totalDaysInMonth = this.getTotalDaysInMonth(year, month);
+        const totalDaysInMonth = getTotalDaysInMonth(year, month);
         const allDatesOfThisMonth: FormattedDate[] = [];
         const items = [
             { title: 'going to work', time: { hours: 8, minutes: 30 } },
@@ -69,61 +32,96 @@ class Calendar extends Component {
         }
 
         return allDatesOfThisMonth;
+    }, []);
+
+    const initCalendar = useCallback((): void => {
+        console.log('[initCalendar] ran');
+        const dateNow = dateToCalculateFrom;
+        const dateLastMonth = getDateOfLastMonth(dateNow);
+        const dateNextMonth = getDateOfNextMonth(dateNow);
+
+        const monthsToLoad = [dateLastMonth, dateNow, dateNextMonth];
+
+        let allNewDates: FormattedMonthWithWeeks = [];
+        monthsToLoad.forEach(dateToLoad => {
+            allNewDates.push(addNewDateToArray(dateToLoad));
+        });
+
+        setDates(allNewDates);
+        setKeyOfSelectedMonth(1);
+    }, [dateToCalculateFrom, addNewDateToArray]);
+
+    useEffect(() => {
+        initCalendar();
+    }, [initCalendar]);
+
+    const getDateOfLastMonth = (dateNow: Date): Date => {
+        if (dateNow.getMonth() === 0) {
+            return new Date(dateNow.getFullYear() - 1, 11, 1);
+        } else {
+            return new Date(dateNow.getFullYear(), dateNow.getMonth() - 1, 1);
+        }
     };
 
-    getTotalDaysInMonth = (year: number, month: number): number => {
+    const getDateOfNextMonth = (dateNow: Date): Date => {
+        if (dateNow.getMonth() === 11) {
+            return new Date(dateNow.getFullYear() + 1, 0, 1);
+        } else {
+            return new Date(dateNow.getFullYear(), dateNow.getMonth() + 1, 1);
+        }
+    };
+
+    const getTotalDaysInMonth = (year: number, month: number): number => {
         return new Date(year, month + 1, 0).getDate();
     };
 
-    clickedOnMonthHandler = (year: number, month: number): void => {
-        this.changeMonth(year, month);
+    const clickedOnMonthHandler = (year: number, month: number): void => {
+        changeMonth(year, month);
     };
 
-    onRightMonthArrowClickHandler = (): void => {
-        let year = this.state.dateToCalculateFrom.getFullYear();
-        let nextMonth = this.state.dateToCalculateFrom.getMonth() + 1;
+    const onRightMonthArrowClickHandler = (): void => {
+        let year = dateToCalculateFrom.getFullYear();
+        let nextMonth = dateToCalculateFrom.getMonth() + 1;
         if (nextMonth === 12) {
             nextMonth = 0;
             year += 1;
         }
 
-        this.changeMonth(year, nextMonth);
+        changeMonth(year, nextMonth);
     };
 
-    onLeftMonthArrowClickHandler = (): void => {
-        let year = this.state.dateToCalculateFrom.getFullYear();
-        let nextMonth = this.state.dateToCalculateFrom.getMonth() - 1;
+    const onLeftMonthArrowClickHandler = (): void => {
+        let year = dateToCalculateFrom.getFullYear();
+        let nextMonth = dateToCalculateFrom.getMonth() - 1;
         if (nextMonth < 0) {
             nextMonth = 11;
             year -= 1;
         }
 
-        this.changeMonth(year, nextMonth);
+        changeMonth(year, nextMonth);
     };
 
-    changeMonth = (year: number, month: number): void => {
+    const changeMonth = (year: number, month: number): void => {
         const newDateToCalculateFrom = new Date(year, month + 1, 0);
 
-        this.setState({ dateToCalculateFrom: newDateToCalculateFrom }, this.initCalendar);
+        setDateToCalculateFrom(newDateToCalculateFrom);
     };
 
-    render() {
-        let calendarTemplate = <Loader />;
-        if (this.state.dates && this.state.keyOfSelectedMonth) {
-            calendarTemplate = (
-                <CalendarTemplate
-                    dates={this.state.dates}
-                    keyOfSelectedMonth={this.state.keyOfSelectedMonth}
-                    dateToCalculateFrom={this.state.dateToCalculateFrom}
-                    clickedOnMonth={this.clickedOnMonthHandler}
-                    rightMonthArrowClick={this.onRightMonthArrowClickHandler}
-                    leftMonthArrowClick={this.onLeftMonthArrowClickHandler}
-                />
-            );
-        }
-
-        return <div>{calendarTemplate}</div>;
+    let calendarTemplate = <Loader />;
+    if (dates && keyOfSelectedMonth) {
+        calendarTemplate = (
+            <CalendarTemplate
+                dates={dates}
+                keyOfSelectedMonth={keyOfSelectedMonth}
+                dateToCalculateFrom={dateToCalculateFrom}
+                clickedOnMonth={clickedOnMonthHandler}
+                rightMonthArrowClick={onRightMonthArrowClickHandler}
+                leftMonthArrowClick={onLeftMonthArrowClickHandler}
+            />
+        );
     }
-}
+
+    return <div>{calendarTemplate}</div>;
+};
 
 export default Calendar;
