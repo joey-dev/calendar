@@ -7,3 +7,4 @@ precache-manifest.*.js
 robots.txt
 service-worker.js
 static
+.idea
