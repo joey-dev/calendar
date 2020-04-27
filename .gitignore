@@ -1,4 +1,9 @@
-*
-!.gitignore
-!api
-!spa
+asset-manifest.json
+favicon.ico
+index.html
+*.png
+manifest.json
+precache-manifest.*.js
+robots.txt
+service-worker.js
+static
