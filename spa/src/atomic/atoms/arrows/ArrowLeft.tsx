@@ -7,11 +7,11 @@ type Props = {
 };
 
 type StyledSpanProps = {
-    spacing: boolean;
+    needSpacing: boolean;
 };
 
 const StyledSpan = styled.span<StyledSpanProps>`
-    margin: ${props => (props.spacing ? '0 10px 0 10px' : '0')};
+    margin: ${props => (props.needSpacing ? '0 10px 0 10px' : '0')};
 
     &:hover {
         cursor: pointer;
@@ -20,7 +20,7 @@ const StyledSpan = styled.span<StyledSpanProps>`
 
 const ArrowLeft: React.FC<Props> = props => {
     return (
-        <StyledSpan spacing={props.spacing} onClick={props.onClick}>
+        <StyledSpan needSpacing={props.spacing} onClick={props.onClick}>
             &#60;
         </StyledSpan>
     );

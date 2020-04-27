@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -32,7 +31,7 @@ const StylesImg = styled.img`
 `;
 
 type Props = {
-    image: string | null;
+    image?: string;
     aligned: string;
     clicked: (event: React.MouseEvent<HTMLElement>) => void;
 };

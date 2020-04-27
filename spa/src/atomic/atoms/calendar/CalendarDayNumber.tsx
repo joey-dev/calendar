@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 type StyledDayNumberProps = {
-    thisMonth: boolean;
+    thisMonth?: boolean;
 };
 
 const StyledDayNumber = styled.p<StyledDayNumberProps>`
@@ -12,7 +12,8 @@ const StyledDayNumber = styled.p<StyledDayNumberProps>`
 `;
 
 type Props = {
-    thisMonth: boolean;
+    thisMonth?: boolean;
+    children: number;
 };
 
 const CalendarDayNumber: React.FC<Props> = props => {

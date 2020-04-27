@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 type BackGroundColorOfStyledPProps = {
     thisMonth: boolean;
-    alternativeColor: boolean;
+    alternativeColor?: boolean;
 };
 
 type backGroundColors = 'darkGrey' | 'grey' | 'white';
@@ -19,7 +19,7 @@ const backGroundColorOfStyledP = (props: BackGroundColorOfStyledPProps): backGro
 
 type StyledPProps = {
     thisMonth: boolean;
-    alternativeColor: boolean;
+    alternativeColor?: boolean;
 };
 
 const StyledP = styled.p<StyledPProps>`
@@ -36,7 +36,7 @@ const StyledP = styled.p<StyledPProps>`
 
 type Props = {
     thisMonth: boolean;
-    alternativeColor: boolean;
+    alternativeColor?: boolean;
     year: number;
     month: number;
     clicked: (year: number, month: number) => void;

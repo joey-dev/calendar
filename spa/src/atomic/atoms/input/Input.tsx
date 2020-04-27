@@ -1,9 +1,10 @@
 import React, { Fragment } from 'react';
 import styled from 'styled-components';
-import { InputTextOnChange, TextAreaOnChange } from '../../../config/InputEvents';
+import { InputTextOnChange, TextAreaOnChange } from '../../../config/formTypes/FormEvents';
+import { FormType } from '../../../config/formTypes/FormType';
 
 type StyledInputProps = {
-    type: InputType;
+    type: FormType;
     name: string;
     id: string;
     onChange: (event: InputTextOnChange) => void;
@@ -23,8 +24,6 @@ const StyledTextarea = styled.textarea<StyledTextareaProps>`
     width: 100%;
 `;
 
-type InputType = 'text' | 'email' | 'password' | 'textarea';
-
 type itemsToAddToInputProps = {
     name: string;
     id: string;
@@ -32,7 +31,7 @@ type itemsToAddToInputProps = {
 };
 
 type Props = {
-    type: InputType;
+    inputType: FormType;
     name: string;
     id: string;
     changed: (event: InputTextOnChange | TextAreaOnChange) => void;
@@ -41,7 +40,7 @@ type Props = {
 const Input: React.FC<Props> = props => {
     let inputType;
 
-    switch (props.type) {
+    switch (props.inputType) {
         case 'text':
         case 'email':
         case 'password':
@@ -62,7 +61,7 @@ const Input: React.FC<Props> = props => {
 
     const input =
         inputType === 'input' ? (
-            <StyledInput type={props.type} {...itemsToAddToInput} />
+            <StyledInput type={props.inputType} {...itemsToAddToInput} />
         ) : (
             <StyledTextarea {...itemsToAddToInput} />
         );
