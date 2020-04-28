@@ -1,16 +1,32 @@
 import React from 'react';
 import styled from 'styled-components';
 
+type ButtonTypes = 'submit' | 'button';
+
 type Props = {
-    type: string;
+    type?: ButtonTypes;
 };
 
 const StyledButton = styled.button`
-    width: 50px;
+    width: auto;
+    font-size: 1.5em;
+    background-color: grey;
+    border: 1px solid grey;
+    
+    :hover {
+        background-color: white;
+        cursor: pointer;
+    }
 `;
 
 const Button: React.FC<Props> = props => {
-    return <StyledButton type="button">{props.children}</StyledButton>;
+    return (
+        <StyledButton
+            type={props.type ? props.type : 'button'}
+        >
+            {props.children}
+        </StyledButton>
+    );
 };
 
 export default Button;

@@ -10,33 +10,57 @@ const ldsDualRingKeyframe = keyframes`
       }
 `;
 
-const StyledDiv = styled.div`
-    position: relative;
-    transform: translate(calc(50% - 40px), calc(50% - 40px));
+const centered = 'translate(calc(50% - 40px), calc(50% - 40px)';
+
+type StyledDivProps = {
+    centered?: boolean;
+}
+
+const StyledSpan = styled.span<StyledDivProps>`
+    position: ${props => props.centered ? 'relative' : 'unset'};
+    transform: ${props => props.centered ? centered : null};
 `;
 
-const StyledLoader = styled.div`
+type StyledLoaderProps = {
+    small?: boolean;
+}
+
+const smallLoader = {
+    width: '15px',
+    height: '15px',
+    borderThickness: '3px',
+};
+
+const largeLoader = {
+    width: '64px',
+    height: '64px',
+    borderThickness: '6px',
+};
+
+const StyledLoader = styled.span<StyledLoaderProps>`
     display: inline-block;
-    width: 80px;
-    height: 80px;
     &:after {
         content: ' ';
         display: block;
-        width: 64px;
-        height: 64px;
-        margin: 8px;
+        width: ${props => props.small ? smallLoader.width : largeLoader.width};        
+        height: ${props => props.small ? smallLoader.height : largeLoader.height};
         border-radius: 50%;
-        border: 6px solid black;
+        border: ${props => props.small ? smallLoader.borderThickness : largeLoader.borderThickness} solid black;
         border-color: black transparent black transparent;
         animation: ${ldsDualRingKeyframe} 1.2s linear infinite;
     }
 `;
 
-const Loader: React.FC = () => {
+type Props = {
+    centered?: boolean;
+    small?: boolean;
+}
+
+const Loader: React.FC<Props> = (props) => {
     return (
-        <StyledDiv>
-            <StyledLoader />
-        </StyledDiv>
+        <StyledSpan centered={props.centered}>
+            <StyledLoader small={props.small} />
+        </StyledSpan>
     );
 };
 

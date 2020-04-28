@@ -1,8 +1,8 @@
 import React from 'react';
 import Input from '../../atoms/input/Input';
 import Label from '../../atoms/input/Label';
-import { InputTextOnChange, TextAreaOnChange } from '../../../config/formTypes/FormEvents';
-import { FormType } from '../../../config/formTypes/FormType';
+import { InputTextOnChange, TextAreaOnChange } from '../../../interfaces/formTypes/FormEvents';
+import { FormType } from '../../../interfaces/formTypes/FormType';
 
 type Props = {
     name: string;

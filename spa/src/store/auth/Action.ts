@@ -17,7 +17,9 @@ export const authSuccess = (token: string, userId: string) => {
 export const authFail = (error: Error) => {
     return {
         type: actionTypes.AUTH_FAIL,
-        error,
+        payload: {
+            error,
+        },
     };
 };
 
@@ -36,23 +38,29 @@ export const logoutSucceed = () => {
 export const checkAuthTimeout = (expirationTime: number) => {
     return {
         type: actionTypes.AUTH_CHECK_TIMEOUT,
-        expirationTime,
+        payload: {
+            expirationTime,
+        },
     };
 };
 
 export const auth = (email: string, password: string, isSignUp: boolean) => {
     return {
         type: actionTypes.AUTH_USER,
-        email,
-        password,
-        isSignUp,
+        payload: {
+            email,
+            password,
+            isSignUp,
+        },
     };
 };
 
 export const setAuthRedirectPath = (path: string) => {
     return {
         type: actionTypes.SET_AUTH_REDIRECT_PATH,
-        path,
+        payload: {
+            path,
+        },
     };
 };
 

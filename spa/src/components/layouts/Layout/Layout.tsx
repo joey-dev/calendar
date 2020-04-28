@@ -1,13 +1,31 @@
 import React from 'react';
 import Header from '../../../atomic/templates/layout/Header';
+import { connect } from 'react-redux';
+import { AuthStoreState } from '../../../store/auth/Index';
 
-const Layout: React.FC = props => {
+type Props = {
+    isAuthenticated: boolean
+}
+
+const Layout: React.FC<Props> = props => {
     return (
         <div>
-            <Header />
+            {
+                props.isAuthenticated ? (<Header />) : null
+            }
             {props.children}
         </div>
     );
 };
 
-export default Layout;
+type StateProps = {
+    auth: AuthStoreState;
+};
+
+const mapStateToProps = (state: StateProps) => {
+    return {
+        isAuthenticated: state.auth.userId !== null,
+    }
+};
+
+export default connect(mapStateToProps)(Layout);

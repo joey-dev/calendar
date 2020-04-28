@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import styled from 'styled-components';
-import { InputTextOnChange, TextAreaOnChange } from '../../../config/formTypes/FormEvents';
-import { FormType } from '../../../config/formTypes/FormType';
+import { InputTextOnChange, TextAreaOnChange } from '../../../interfaces/formTypes/FormEvents';
+import { FormType } from '../../../interfaces/formTypes/FormType';
 
 type StyledInputProps = {
     type: FormType;

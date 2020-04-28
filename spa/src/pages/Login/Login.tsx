@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import LoginTemplate from '../../atomic/templates/login/LoginTemplate';
-import { AnyInputOnChange, FormOnSubmit } from '../../config/formTypes/FormEvents';
+import { AnyInputOnChange, FormOnSubmit } from '../../interfaces/formTypes/FormEvents';
 import { AuthStoreState } from '../../store/auth/Index';
 import { auth, setAuthRedirectPath } from '../../store/auth/Action';
 import { connect } from 'react-redux';
@@ -34,7 +34,6 @@ const Login: React.FC<Props> = (props: Props) => {
 
     const onSubmitHandler = (event: FormOnSubmit) => {
         event.preventDefault();
-        console.log('onSubmit');
         props.onAuth(user.email, user.password, isSignUp);
     };
 
@@ -63,7 +62,7 @@ const Login: React.FC<Props> = (props: Props) => {
     return (
         <React.Fragment>
             {authRedirect}
-            <LoginTemplate onSubmit={onSubmitHandler} onInputChange={onInputChangeHandler} />
+            <LoginTemplate onSubmit={onSubmitHandler} onInputChange={onInputChangeHandler} isLoading={props.loading} />
         </React.Fragment>
     );
 };
