@@ -1,71 +1,46 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import LoginTemplate from '../../atomic/templates/login/LoginTemplate';
-import Axios from '../../services/Axios/AxiosConfig';
-import { User } from '../../interfaces/User';
 import { AnyInputOnChange, FormOnSubmit } from '../../config/formTypes/FormEvents';
+import { AuthStoreState } from '../../store/auth/Index';
+import { auth, setAuthRedirectPath } from '../../store/auth/Action';
+import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
 type UseLoginData = {
-    email: string | undefined;
-    password: string | undefined;
+    email: string;
+    password: string;
 };
 
-const Login: React.FC = () => {
-    // const [loggedIn, setLoggedIn] = useState(false);
-    const [user, setUser] = useState<UseLoginData>({
-        email: undefined,
-        password: undefined,
-    });
+type DispatchProps = {
+    onAuth: (email: string, password: string, isSignedUp: boolean) => void;
+    onSetAuthRedirectPath: (path: string) => void;
+};
 
-    // const showLoginSuccess = (userDetails: User): void => {
-    //     console.log('login succeeded!');
-    //     localStorage.setItem('userDetails', JSON.stringify(userDetails));
-    //
-    //     const userDetailsLocalStorage = localStorage.getItem('userDetails');
-    //     if (userDetailsLocalStorage) {
-    //         console.log(JSON.parse(userDetailsLocalStorage));
-    //     } else {
-    //         console.log('[Login] Error with user details');
-    //     }
-    // };
-    //
-    // const showLoginFailed = (): void => {
-    //     console.log('login failed');
-    // };
+type Props = AuthStoreState & DispatchProps;
+
+const Login: React.FC<Props> = (props: Props) => {
+    const [user, setUser] = useState<UseLoginData>({
+        email: '',
+        password: '',
+    });
+    const [isSignUp, setIsSignUp] = useState(true);
+    const {authRedirectPath, onSetAuthRedirectPath} = props;
+
+    useEffect(() => {
+        if (!authRedirectPath) {
+            onSetAuthRedirectPath('/');
+        }
+    }, [authRedirectPath, onSetAuthRedirectPath]);
 
     const onSubmitHandler = (event: FormOnSubmit) => {
         event.preventDefault();
-        const requestData = {
-            username: user.email,
-            password: user.password,
-        };
-        console.log(requestData);
-
-        Axios.post('login_check/', requestData)
-            .then((success: any) => {
-                console.log(success);
-            })
-            .catch((error: any) => {
-                console.log(error);
-            });
-
-        // if (this.state.user.email === "Jhon@test.test" && this.state.user.password === "test123") {
-        //     const userDetails = {
-        //         username: "Jhon",
-        //         firstName: "Jhon",
-        //         lastName: "Smith",
-        //         email: this.state.user.email,
-        //         password: undefined,
-        //         token: 12345
-        //     };
-        //     this.showLoginSuccess(userDetails);
-        // } else {
-        //     this.showLoginFailed();
-        // }
+        console.log('onSubmit');
+        props.onAuth(user.email, user.password, isSignUp);
     };
 
     const onInputChangeHandler = (event: AnyInputOnChange) => {
-        let email: string | undefined = user.email;
-        let password: string | undefined = user.password;
+        let email: string = user.email;
+        let password: string = user.password;
 
         switch (event.target.name) {
             case 'email':
@@ -81,7 +56,44 @@ const Login: React.FC = () => {
         setUser({ email, password });
     };
 
-    return <LoginTemplate onSubmit={onSubmitHandler} onInputChange={onInputChangeHandler} />;
+    let authRedirect = null;
+    if (props.isAuthenticated) {
+        authRedirect = <Redirect to={props.authRedirectPath} />;
+    }
+    return (
+        <React.Fragment>
+            {authRedirect}
+            <LoginTemplate onSubmit={onSubmitHandler} onInputChange={onInputChangeHandler} />
+        </React.Fragment>
+    );
 };
 
-export default Login;
+type StateProps = {
+    auth: AuthStoreState;
+};
+
+const mapStateToProps = (state: StateProps) => {
+    return {
+        loading: state.auth.loading,
+        error: state.auth.error,
+        isAuthenticated: state.auth.userId !== null,
+        authRedirectPath: state.auth.authRedirectPath,
+    };
+};
+
+type DispatchPropsArgs = {
+    type: string;
+    email?: string;
+    password?: string;
+    isSignUp?: boolean;
+    path?: string;
+};
+
+const mapDispatchToProps = (dispatch: (arg0: DispatchPropsArgs) => void) => {
+    return {
+        onAuth: (email: string, password: string, isSignedUp: boolean) => dispatch(auth(email, password, isSignedUp)),
+        onSetAuthRedirectPath: (path: string) => dispatch(setAuthRedirectPath(path)),
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

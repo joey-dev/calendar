@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FormEvent } from 'react';
 import Button from '../../atoms/button/Button';
 import FullInput from '../../modecules/input/FullInput';
 import { FormOnSubmit, InputTextOnChange, TextAreaOnChange } from '../../../config/formTypes/FormEvents';
@@ -9,8 +9,13 @@ type Props = {
 };
 
 const LoginTemplate: React.FC<Props> = props => {
+
+    const test = (event: FormEvent<HTMLFormElement>) => {
+        console.log('test')
+    }
+
     return (
-        <form onSubmit={props.onSubmit}>
+        <form onSubmit={test}>
             <FullInput type="email" name="email" inputChanged={props.onInputChange} />
             <FullInput type="password" name="password" inputChanged={props.onInputChange} />
             <Button type="submit">Login</Button>
