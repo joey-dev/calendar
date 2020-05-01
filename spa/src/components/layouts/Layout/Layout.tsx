@@ -4,15 +4,13 @@ import { connect } from 'react-redux';
 import { AuthStoreState } from '../../../store/auth/Index';
 
 type Props = {
-    isAuthenticated: boolean
-}
+    isAuthenticated: boolean;
+};
 
 const Layout: React.FC<Props> = props => {
     return (
         <div>
-            {
-                props.isAuthenticated ? (<Header />) : null
-            }
+            {props.isAuthenticated ? <Header /> : null}
             {props.children}
         </div>
     );
@@ -25,7 +23,7 @@ type StateProps = {
 const mapStateToProps = (state: StateProps) => {
     return {
         isAuthenticated: state.auth.userId !== null,
-    }
+    };
 };
 
 export default connect(mapStateToProps)(Layout);

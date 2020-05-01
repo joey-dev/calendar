@@ -14,16 +14,16 @@ const centered = 'translate(calc(50% - 40px), calc(50% - 40px)';
 
 type StyledDivProps = {
     centered?: boolean;
-}
+};
 
 const StyledSpan = styled.span<StyledDivProps>`
-    position: ${props => props.centered ? 'relative' : 'unset'};
-    transform: ${props => props.centered ? centered : null};
+    position: ${props => (props.centered ? 'relative' : 'unset')};
+    transform: ${props => (props.centered ? centered : null)};
 `;
 
 type StyledLoaderProps = {
     small?: boolean;
-}
+};
 
 const smallLoader = {
     width: '15px',
@@ -42,10 +42,10 @@ const StyledLoader = styled.span<StyledLoaderProps>`
     &:after {
         content: ' ';
         display: block;
-        width: ${props => props.small ? smallLoader.width : largeLoader.width};        
-        height: ${props => props.small ? smallLoader.height : largeLoader.height};
+        width: ${props => (props.small ? smallLoader.width : largeLoader.width)};
+        height: ${props => (props.small ? smallLoader.height : largeLoader.height)};
         border-radius: 50%;
-        border: ${props => props.small ? smallLoader.borderThickness : largeLoader.borderThickness} solid black;
+        border: ${props => (props.small ? smallLoader.borderThickness : largeLoader.borderThickness)} solid black;
         border-color: black transparent black transparent;
         animation: ${ldsDualRingKeyframe} 1.2s linear infinite;
     }
@@ -54,9 +54,9 @@ const StyledLoader = styled.span<StyledLoaderProps>`
 type Props = {
     centered?: boolean;
     small?: boolean;
-}
+};
 
-const Loader: React.FC<Props> = (props) => {
+const Loader: React.FC<Props> = props => {
     return (
         <StyledSpan centered={props.centered}>
             <StyledLoader small={props.small} />

@@ -21,8 +21,7 @@ type CheckAuthTimeoutSagaAction = {
 
 type CheckAuthTimeoutSagaActionPayload = {
     expirationTime: number;
-}
-
+};
 
 export function* checkAuthTimeoutSaga(action: CheckAuthTimeoutSagaAction) {
     yield delay(action.payload.expirationTime * 1000);
@@ -30,14 +29,14 @@ export function* checkAuthTimeoutSaga(action: CheckAuthTimeoutSagaAction) {
 }
 
 type AuthUserSagaAction = {
-    payload: AuthUserSagaPayload
+    payload: AuthUserSagaPayload;
 };
 
 type AuthUserSagaPayload = {
     email: string;
     password: string;
     isSignUp: boolean;
-}
+};
 
 type LoginResponse = {
     data: LoginResponseData;
@@ -46,7 +45,7 @@ type LoginResponse = {
 type LoginResponseData = {
     token: string;
     user: User;
-}
+};
 
 export function* authUserSaga(action: AuthUserSagaAction) {
     yield put(actions.authStart());
