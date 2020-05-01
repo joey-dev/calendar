@@ -1,6 +1,7 @@
 import Axios from '../../services/Axios/AxiosConfig';
 import { call, delay, put } from 'redux-saga/effects';
 import * as actions from './Action';
+import { User } from '../../interfaces/User';
 
 type LogoutSageAction = {
     logoutSucceed: () => void;
@@ -24,40 +25,44 @@ export function* checkAuthTimeoutSaga(action: CheckAuthTimeoutSagaAction) {
 }
 
 type AuthUserSagaAction = {
+    payload: AuthUserSagaPayload
+};
+
+type AuthUserSagaPayload = {
     email: string;
     password: string;
     isSignUp: boolean;
-};
+}
 
 type LoginResponse = {
-    data: LoginResponseData;
-};
-type LoginResponseData = {
-    token: string;
-    userId: string;
-    expiresIn: number;
+    token: string,
+    user: User,
+    roles: string[]
 };
 
 export function* authUserSaga(action: AuthUserSagaAction) {
     yield put(actions.authStart());
     const authData = {
-        name: action.email,
-        password: action.password,
+        username: action.payload.email,
+        password: action.payload.password,
         returnSecureToken: true,
     };
-    let url = '/check-login';
-    if (action.isSignUp) {
+    let url = '/login_check';
+    if (action.payload.isSignUp) {
         url = '/register';
     }
+    console.log(authData);
     try {
         const response: LoginResponse = yield Axios.post(url, authData);
+        console.log(response);
+        const expiresIn = 3600;
 
-        const expirationDate = yield new Date(new Date().getTime() + response.data.expiresIn * 1000);
-        yield localStorage.setItem('token', response.data.token);
+        const expirationDate = yield new Date(new Date().getTime() + expiresIn * 1000);
+        yield localStorage.setItem('token', response.token);
         yield localStorage.setItem('expirationDate', expirationDate);
-        yield localStorage.setItem('userId', response.data.userId);
-        yield put(actions.authSuccess(response.data.token, response.data.userId));
-        yield put(actions.checkAuthTimeout(response.data.expiresIn));
+        yield localStorage.setItem('userId', response.user.userId.toString());
+        yield put(actions.authSuccess(response.token, response.user.userId.toString()));
+        yield put(actions.checkAuthTimeout(expiresIn));
     } catch (error) {
         yield put(actions.authFail(error.response.data.error));
     }

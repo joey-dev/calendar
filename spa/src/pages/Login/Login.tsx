@@ -23,7 +23,7 @@ const Login: React.FC<Props> = (props: Props) => {
         email: '',
         password: '',
     });
-    const [isSignUp, setIsSignUp] = useState(true);
+    const [isSignUp, setIsSignUp] = useState(false);
     const {authRedirectPath, onSetAuthRedirectPath} = props;
 
     useEffect(() => {
