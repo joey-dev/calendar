@@ -11,14 +11,16 @@ const initialState: AuthStoreState = {
 };
 
 type AuthSuccessActions = {
-    idToken?: () => void;
-    localId?: () => void;
+    token?: string;
+    userId?: string;
 };
 
 const authSuccess = (state: AuthStoreState, action: AuthSuccessActions) => {
+    console.log(state);
+    console.log(action);
     return UpdateObject(state, {
-        token: action.idToken,
-        userId: action.localId,
+        token: action.token,
+        userId: action.token,
         error: null,
         loading: false,
     });
@@ -39,8 +41,8 @@ type AuthReducerActions = {
 type Payload = {
     error?: string | null;
     path?: string;
-    idToken?: () => void;
-    localId?: () => void;
+    token?: string;
+    userId?: string;
 };
 
 const authReducer = (state: AuthStoreState = initialState, { type, payload }: AuthReducerActions) => {
@@ -50,6 +52,7 @@ const authReducer = (state: AuthStoreState = initialState, { type, payload }: Au
         case actionTypes.AUTH_FAIL:
             return UpdateObject(state, { error: payload.error, loading: false });
         case actionTypes.AUTH_SUCCESS:
+            console.log(payload);
             return authSuccess(state, payload);
         case actionTypes.AUTH_LOGOUT:
             return authLogout(state);

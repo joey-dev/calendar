@@ -16,11 +16,16 @@ export function* logoutSaga(action: LogoutSageAction) {
 
 type CheckAuthTimeoutSagaAction = {
     logout: () => void;
-    expirationTime: number;
+    payload: CheckAuthTimeoutSagaActionPayload;
 };
 
+type CheckAuthTimeoutSagaActionPayload = {
+    expirationTime: number;
+}
+
+
 export function* checkAuthTimeoutSaga(action: CheckAuthTimeoutSagaAction) {
-    yield delay(action.expirationTime * 1000);
+    yield delay(action.payload.expirationTime * 1000);
     yield put(actions.logout());
 }
 
@@ -35,10 +40,13 @@ type AuthUserSagaPayload = {
 }
 
 type LoginResponse = {
-    token: string,
-    user: User,
-    roles: string[]
+    data: LoginResponseData;
 };
+
+type LoginResponseData = {
+    token: string;
+    user: User;
+}
 
 export function* authUserSaga(action: AuthUserSagaAction) {
     yield put(actions.authStart());
@@ -58,12 +66,13 @@ export function* authUserSaga(action: AuthUserSagaAction) {
         const expiresIn = 3600;
 
         const expirationDate = yield new Date(new Date().getTime() + expiresIn * 1000);
-        yield localStorage.setItem('token', response.token);
+        yield localStorage.setItem('token', response.data.token);
         yield localStorage.setItem('expirationDate', expirationDate);
-        yield localStorage.setItem('userId', response.user.userId.toString());
-        yield put(actions.authSuccess(response.token, response.user.userId.toString()));
+        yield localStorage.setItem('userId', response.data.user.userId.toString());
+        yield put(actions.authSuccess(response.data.token, response.data.user.userId.toString()));
         yield put(actions.checkAuthTimeout(expiresIn));
     } catch (error) {
+        console.error(error);
         yield put(actions.authFail(error.response.data.error));
     }
 }
