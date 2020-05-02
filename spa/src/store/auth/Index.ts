@@ -18,6 +18,7 @@ export type AuthStoreState = {
     userId?: string | null;
     error: string | null;
     loading: boolean;
+    isAutoSigningUp: boolean;
     isAuthenticated?: boolean;
     authRedirectPath: string;
     user?: User;

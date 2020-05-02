@@ -3,14 +3,14 @@ import axios from 'axios';
 const baseURL = process.env.NODE_ENV === 'development' ? 'http://10.0.0.2/api' : '/api';
 
 const AxiosConfig = () => {
-    let Axios = axios.create({baseURL});
+    let Axios = axios.create({ baseURL });
 
     const token = localStorage.getItem('token');
 
     if (token) {
         Axios = axios.create({
             baseURL,
-            headers: {'Authorization': 'Bearer ' + token},
+            headers: { Authorization: 'Bearer ' + token },
         });
     }
 

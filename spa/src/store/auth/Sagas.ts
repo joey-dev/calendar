@@ -76,45 +76,50 @@ export function* authUserSaga(action: AuthUserSagaAction) {
 }
 
 export function* authCheckStateSaga(action: {}) {
+    yield put(actions.authCheckStateStart());
+
     const token = yield localStorage.getItem('token');
     if (!token || token === 'undefined') {
         yield put(actions.logout());
     } else {
         const expirationDateStorage = localStorage.getItem('expirationDate');
         if (!expirationDateStorage) {
+            yield put(actions.authCheckStateFinish());
             return;
         }
         const expirationDate = yield new Date(expirationDateStorage.toString());
         if (expirationDate <= new Date()) {
             yield put(actions.logout());
+            yield put(actions.authCheckStateFinish());
             return;
         }
         const userId = yield localStorage.getItem('userId');
-        yield authUserLoginWithId(userId)
+        yield authUserLoginWithId(userId);
     }
+    yield put(actions.authCheckStateFinish());
 }
 
 type UserResponse = {
     data: UserResponseData;
-}
+};
 
 type UserResponseData = {
     '@centext': string;
     '@id': string;
     '@type': string;
-    'id': number;
-    'username': string;
-    'email': string;
-    'firstName': string;
-    'lastName': string;
-    'password': string;
-    'roles': string[];
-    'salt'?: string;
-}
+    id: number;
+    username: string;
+    email: string;
+    firstName: string;
+    lastName: string;
+    password: string;
+    roles: string[];
+    salt?: string;
+};
 
 function* authUserLoginWithId(userId: string) {
     try {
-        const response: UserResponse = yield Axios().get("/users/" + userId);
+        const response: UserResponse = yield Axios().get('/users/' + userId);
         const expiresIn = 3600;
 
         const user: User = {

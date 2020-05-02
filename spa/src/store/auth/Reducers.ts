@@ -8,12 +8,13 @@ const initialState: AuthStoreState = {
     userId: null,
     error: null,
     loading: false,
+    isAutoSigningUp: false,
     authRedirectPath: '/',
 };
 
 type AuthSuccessActions = {
     token?: string;
-    user?: User
+    user?: User;
 };
 
 const authSuccess = (state: AuthStoreState, action: AuthSuccessActions) => {
@@ -22,7 +23,7 @@ const authSuccess = (state: AuthStoreState, action: AuthSuccessActions) => {
         userId: action.user ? action.user.userId : null,
         user: action.user,
         error: null,
-        loading: false
+        loading: false,
     });
 };
 
@@ -52,12 +53,15 @@ const authReducer = (state: AuthStoreState = initialState, { type, payload }: Au
         case actionTypes.AUTH_FAIL:
             return UpdateObject(state, { error: payload.error, loading: false });
         case actionTypes.AUTH_SUCCESS:
-            console.log(payload);
             return authSuccess(state, payload);
         case actionTypes.AUTH_LOGOUT:
             return authLogout(state);
         case actionTypes.SET_AUTH_REDIRECT_PATH:
             return UpdateObject(state, { authRedirectPath: payload.path });
+        case actionTypes.AUTH_CHECK_STATE_START:
+            return UpdateObject(state, { isAutoSigningUp: true });
+        case actionTypes.AUTH_CHECK_STATE_FINISH:
+            return UpdateObject(state, { isAutoSigningUp: false });
         default:
             return state;
     }

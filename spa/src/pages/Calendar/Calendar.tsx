@@ -35,7 +35,6 @@ const Calendar: React.FC = () => {
     }, []);
 
     const initCalendar = useCallback((): void => {
-        console.log('[initCalendar] ran');
         const dateNow = dateToCalculateFrom;
         const dateLastMonth = getDateOfLastMonth(dateNow);
         const dateNextMonth = getDateOfNextMonth(dateNow);

@@ -72,3 +72,15 @@ export const authCheckState = () => {
         type: actionTypes.AUTH_CHECK_STATE,
     };
 };
+
+export const authCheckStateStart = () => {
+    return {
+        type: actionTypes.AUTH_CHECK_STATE_START,
+    };
+};
+
+export const authCheckStateFinish = () => {
+    return {
+        type: actionTypes.AUTH_CHECK_STATE_FINISH,
+    };
+};

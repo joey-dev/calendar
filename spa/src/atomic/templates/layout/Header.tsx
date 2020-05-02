@@ -10,35 +10,32 @@ const OuterDiv = styled.div`
 `;
 
 const StyledH1 = styled.h1`
-    display: inline-block; 
+    display: inline-block;
 `;
 
 type Props = {
     username?: string;
-}
+};
 
 const Header: React.FC<Props> = (props: Props) => {
-    const openProfileHandler = () => {
-    };
+    const openProfileHandler = () => {};
 
     return (
         <OuterDiv>
             <StyledH1>Hello, {props.username}</StyledH1>
-            <ProfilePicture aligned={'right'}
-                clicked={openProfileHandler}
-            />
+            <ProfilePicture aligned={'right'} clicked={openProfileHandler} />
         </OuterDiv>
     );
 };
 
 type State = {
     auth: AuthStoreState;
-}
+};
 
 const mapStateToProps = (state: State) => {
     return {
         username: state.auth.user?.username,
     };
-}
+};
 
 export default connect(mapStateToProps)(Header);

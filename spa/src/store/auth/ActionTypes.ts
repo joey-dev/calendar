@@ -1,4 +1,6 @@
 export const AUTH_CHECK_STATE: string = 'AUTH_CHECK_STATE';
+export const AUTH_CHECK_STATE_START: string = 'AUTH_CHECK_STATE_START';
+export const AUTH_CHECK_STATE_FINISH: string = 'AUTH_CHECK_STATE_FINISH';
 export const AUTH_USER: string = 'AUTH_USER';
 export const AUTH_START: string = 'AUTH_START';
 export const AUTH_SUCCESS: string = 'AUTH_SUCCESS';
