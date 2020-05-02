@@ -26,6 +26,16 @@ class AppFixtures extends Fixture
 
     public function loadUsers(ObjectManager $manager)
     {
+        $mainUser = $this->createMainUser();
+        $testUser = $this->createTestUser();
+
+        $manager->persist($mainUser);
+        $manager->persist($testUser);
+        $manager->flush();
+    }
+
+    private function createMainUser(): User
+    {
         $user = new User();
         $user->setUsername("joey");
         $user->setFirstName("joey");
@@ -36,7 +46,21 @@ class AppFixtures extends Fixture
             "test123"
         ));
 
-        $manager->persist($user);
-        $manager->flush();
+        return $user;
+    }
+
+    private function createTestUser(): User
+    {
+        $user = new User();
+        $user->setUsername("test");
+        $user->setFirstName("test");
+        $user->setLastName("test");
+        $user->setEmail("test@test.test");
+        $user->setPassword($this->userPasswordEncoder->encodePassword(
+            $user,
+            "test123"
+        ));
+
+        return $user;
     }
 }

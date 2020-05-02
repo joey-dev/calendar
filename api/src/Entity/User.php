@@ -12,7 +12,9 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  * @ApiResource(
  *     itemOperations={
- *          "get"
+ *          "get" ={
+ *              "access_control"="object.getEmail() === user.getEmail()"
+ *          }
  *     },
  *     collectionOperations={},
  * )
