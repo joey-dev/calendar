@@ -14,20 +14,16 @@ const sideToBeAligned = (aligned: string): string => {
     }
 };
 
-type StyledDivProps = {
+type StyledImgProps = {
     aligned: string;
     isClickable?: boolean;
 };
 
-const StyledDiv = styled.div<StyledDivProps>`
-    cursor: ${props => (props.isClickable ? 'pointer' : 'default')};
-    overflow: hidden;
-    text-align: ${props => sideToBeAligned(props.aligned)};
-`;
-
-const StylesImg = styled.img`
+const StylesImg = styled.img<StyledImgProps>`
     width: 100px;
     border-radius: 20px;
+    float: ${props => sideToBeAligned(props.aligned)};
+    cursor: ${props => (props.isClickable ? 'pointer' : 'default')};
 `;
 
 type Props = {
@@ -41,11 +37,7 @@ const ProfilePicture: React.FC<Props> = props => {
     const images = require.context('../../../assets/images/profilePictures', true);
     const image = images('./' + imageName);
 
-    return (
-        <StyledDiv aligned={props.aligned}>
-            <StylesImg src={image} alt="Your profile" onClick={props.clicked} />
-        </StyledDiv>
-    );
+    return <StylesImg src={image} alt="Your profile" aligned={props.aligned} onClick={props.clicked} />;
 };
 
 export default ProfilePicture;
