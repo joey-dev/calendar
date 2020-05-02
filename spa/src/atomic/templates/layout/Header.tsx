@@ -2,6 +2,7 @@ import React from 'react';
 import ProfilePicture from '../../atoms/profile/ProfilePicture';
 import styled from 'styled-components';
 import { AuthStoreState } from '../../../store/auth/Index';
+import { connect } from 'react-redux';
 
 const OuterDiv = styled.div`
     width: 100%;
@@ -12,13 +13,20 @@ const StyledH1 = styled.h1`
     display: inline-block; 
 `;
 
-const Header: React.FC = () => {
-    const openProfileHandler = () => {};
+type Props = {
+    username?: string;
+}
+
+const Header: React.FC<Props> = (props: Props) => {
+    const openProfileHandler = () => {
+    };
 
     return (
         <OuterDiv>
-            <StyledH1>Hello, name</StyledH1>
-            <ProfilePicture aligned={'right'} clicked={openProfileHandler} />
+            <StyledH1>Hello, {props.username}</StyledH1>
+            <ProfilePicture aligned={'right'}
+                clicked={openProfileHandler}
+            />
         </OuterDiv>
     );
 };
@@ -28,7 +36,9 @@ type State = {
 }
 
 const mapStateToProps = (state: State) => {
-
+    return {
+        username: state.auth.user?.username,
+    };
 }
 
-export default Header;
+export default connect(mapStateToProps)(Header);
