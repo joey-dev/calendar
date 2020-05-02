@@ -2,6 +2,7 @@ import { all, takeEvery } from 'redux-saga/effects';
 
 import * as actionTypes from './ActionTypes';
 import { authCheckStateSaga, authUserSaga, checkAuthTimeoutSaga, logoutSaga } from './Sagas';
+import { User } from '../../interfaces/User';
 
 export function* watchSagas() {
     yield all([
@@ -19,4 +20,5 @@ export type AuthStoreState = {
     loading: boolean;
     isAuthenticated?: boolean;
     authRedirectPath: string;
+    user?: User;
 };

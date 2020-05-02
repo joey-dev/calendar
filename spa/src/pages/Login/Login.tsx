@@ -33,6 +33,7 @@ const Login: React.FC<Props> = (props: Props) => {
     }, [authRedirectPath, onSetAuthRedirectPath]);
 
     const onSubmitHandler = (event: FormOnSubmit) => {
+        console.log(user);
         event.preventDefault();
         props.onAuth(user.email, user.password, isSignUp);
     };

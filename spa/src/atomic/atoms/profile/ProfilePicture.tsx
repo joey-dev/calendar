@@ -33,7 +33,7 @@ type Props = {
 };
 
 const ProfilePicture: React.FC<Props> = props => {
-    const imageName = props.image ? props.image : 'noPicture.jpeg';
+    const imageName = props.image || 'noPicture.jpeg';
     const images = require.context('../../../assets/images/profilePictures', true);
     const image = images('./' + imageName);
 

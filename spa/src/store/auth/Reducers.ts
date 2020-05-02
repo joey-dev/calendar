@@ -1,6 +1,7 @@
 import * as actionTypes from './ActionTypes';
 import UpdateObject from '../../services/reducer/UpdateObject/UpdateObject';
 import { AuthStoreState } from './Index';
+import { User } from '../../interfaces/User';
 
 const initialState: AuthStoreState = {
     token: null,
@@ -12,17 +13,16 @@ const initialState: AuthStoreState = {
 
 type AuthSuccessActions = {
     token?: string;
-    userId?: string;
+    user?: User
 };
 
 const authSuccess = (state: AuthStoreState, action: AuthSuccessActions) => {
-    console.log(state);
-    console.log(action);
     return UpdateObject(state, {
         token: action.token,
-        userId: action.token,
+        userId: action.user ? action.user.userId : null,
+        user: action.user,
         error: null,
-        loading: false,
+        loading: false
     });
 };
 
@@ -42,7 +42,7 @@ type Payload = {
     error?: string | null;
     path?: string;
     token?: string;
-    userId?: string;
+    user?: User;
 };
 
 const authReducer = (state: AuthStoreState = initialState, { type, payload }: AuthReducerActions) => {

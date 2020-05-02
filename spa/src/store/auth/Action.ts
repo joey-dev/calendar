@@ -1,4 +1,5 @@
 import * as actionTypes from './ActionTypes';
+import { User } from '../../interfaces/User';
 
 export const authStart = () => {
     return {
@@ -6,12 +7,12 @@ export const authStart = () => {
     };
 };
 
-export const authSuccess = (token: string, userId: string) => {
+export const authSuccess = (user: User, token?: string) => {
     return {
         type: actionTypes.AUTH_SUCCESS,
         payload: {
             token,
-            userId,
+            user,
         },
     };
 };

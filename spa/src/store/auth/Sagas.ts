@@ -58,27 +58,26 @@ export function* authUserSaga(action: AuthUserSagaAction) {
     if (action.payload.isSignUp) {
         url = '/register';
     }
-    console.log(authData);
     try {
-        const response: LoginResponse = yield Axios.post(url, authData);
-        console.log(response);
+        const response: LoginResponse = yield Axios().post(url, authData);
         const expiresIn = 3600;
+
+        const user: User = response.data.user;
 
         const expirationDate = yield new Date(new Date().getTime() + expiresIn * 1000);
         yield localStorage.setItem('token', response.data.token);
         yield localStorage.setItem('expirationDate', expirationDate);
         yield localStorage.setItem('userId', response.data.user.userId.toString());
-        yield put(actions.authSuccess(response.data.token, response.data.user.userId.toString()));
+        yield put(actions.authSuccess(user, response.data.token));
         yield put(actions.checkAuthTimeout(expiresIn));
     } catch (error) {
-        console.error(error);
         yield put(actions.authFail(error.response.data.error));
     }
 }
 
 export function* authCheckStateSaga(action: {}) {
     const token = yield localStorage.getItem('token');
-    if (!token) {
+    if (!token || token === 'undefined') {
         yield put(actions.logout());
     } else {
         const expirationDateStorage = localStorage.getItem('expirationDate');
@@ -88,10 +87,53 @@ export function* authCheckStateSaga(action: {}) {
         const expirationDate = yield new Date(expirationDateStorage.toString());
         if (expirationDate <= new Date()) {
             yield put(actions.logout());
-        } else {
-            const userId = yield localStorage.getItem('userId');
-            yield put(actions.authSuccess(token, userId));
-            yield put(actions.checkAuthTimeout((expirationDate.getTime() - new Date().getTime()) / 1000));
+            return;
         }
+        const userId = yield localStorage.getItem('userId');
+        yield authUserLoginWithId(userId)
+    }
+}
+
+type UserResponse = {
+    data: UserResponseData;
+}
+
+type UserResponseData = {
+    '@centext': string;
+    '@id': string;
+    '@type': string;
+    'id': number;
+    'username': string;
+    'email': string;
+    'firstName': string;
+    'lastName': string;
+    'password': string;
+    'roles': string[];
+    'salt'?: string;
+}
+
+function* authUserLoginWithId(userId: string) {
+    try {
+        const response: UserResponse = yield Axios().get("/users/" + userId);
+        const expiresIn = 3600;
+
+        const user: User = {
+            userId: response.data.id,
+            username: response.data.username,
+            firstName: response.data.firstName,
+            lastName: response.data.lastName,
+            email: response.data.email,
+            roles: response.data.roles,
+        };
+
+        const expirationDate = yield new Date(new Date().getTime() + expiresIn * 1000);
+        yield localStorage.setItem('expirationDate', expirationDate);
+
+        const token = localStorage.getItem('token') || undefined;
+
+        yield put(actions.authSuccess(user, token));
+        yield put(actions.checkAuthTimeout(expiresIn));
+    } catch (error) {
+        yield put(actions.authFail(error.response.data.error));
     }
 }
