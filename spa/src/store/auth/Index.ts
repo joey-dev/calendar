@@ -23,3 +23,7 @@ export type AuthStoreState = {
     authRedirectPath: string;
     user?: User;
 };
+
+export type UserStoreState = {
+    user?: User;
+};

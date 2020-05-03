@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ProfilePicture from '../../atoms/profile/ProfilePicture';
 import styled from 'styled-components';
-import { AuthStoreState } from '../../../store/auth/Index';
 import { connect } from 'react-redux';
+import Profile from '../../../components/modals/Profile/Profile';
+import { MapStateToProps } from '../../../store';
 
 const OuterDiv = styled.div`
     width: 100%;
@@ -18,23 +19,35 @@ type Props = {
 };
 
 const Header: React.FC<Props> = (props: Props) => {
-    const openProfileHandler = () => {};
+    const [showProfile, setShowProfile] = useState(false);
+
+    const openProfileHandler = () => {
+        setShowProfile(true);
+    };
+
+    const closeProfileHandler = () => {
+        setShowProfile(false);
+    };
 
     return (
-        <OuterDiv>
-            <StyledH1>Hello, {props.username}</StyledH1>
-            <ProfilePicture aligned={'right'} clicked={openProfileHandler} />
-        </OuterDiv>
+        <React.Fragment>
+            <OuterDiv>
+                <StyledH1>Hello, {props.username}</StyledH1>
+                <ProfilePicture aligned={'right'}
+                    clicked={openProfileHandler}
+                    isClickable
+                />
+            </OuterDiv>
+            <Profile show={showProfile}
+                onClose={closeProfileHandler}
+            />
+        </React.Fragment>
     );
 };
 
-type State = {
-    auth: AuthStoreState;
-};
-
-const mapStateToProps = (state: State) => {
+const mapStateToProps = (state: MapStateToProps) => {
     return {
-        username: state.auth.user?.username,
+        username: state.user.user?.username,
     };
 };
 

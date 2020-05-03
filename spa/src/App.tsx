@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
-import Login from './pages/Login/Login';
-import Calendar from './pages/Calendar/Calendar';
+import Login from './components/pages/Login/Login';
+import Calendar from './components/pages/Calendar/Calendar';
 import Layout from './components/layouts/Layout/Layout';
 import { connect } from 'react-redux';
 import { authCheckState } from './store/auth/Action';
-import { AuthStoreState } from './store/auth/Index';
 import Loader from './atomic/atoms/Loader/Loader';
+import { MapStateToProps } from './store';
 
 type Props = {
     onTryAutoSignUp: () => void;
@@ -37,11 +37,7 @@ const App: React.FC<Props> = (props: Props) => {
     return <Layout>{props.isAutoSigningUp ? <Loader centered={true} /> : routes}</Layout>;
 };
 
-type StateProps = {
-    auth: AuthStoreState;
-};
-
-const mapStateToProps = (state: StateProps) => {
+const mapStateToProps = (state: MapStateToProps) => {
     return {
         isAuthenticated: state.auth.userId !== null,
         isAutoSigningUp: state.auth.isAutoSigningUp,

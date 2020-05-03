@@ -1,7 +1,6 @@
 import * as actionTypes from './ActionTypes';
 import UpdateObject from '../../services/reducer/UpdateObject/UpdateObject';
 import { AuthStoreState } from './Index';
-import { User } from '../../interfaces/User';
 
 const initialState: AuthStoreState = {
     token: null,
@@ -14,14 +13,13 @@ const initialState: AuthStoreState = {
 
 type AuthSuccessActions = {
     token?: string;
-    user?: User;
+    userId?: string;
 };
 
 const authSuccess = (state: AuthStoreState, action: AuthSuccessActions) => {
     return UpdateObject(state, {
         token: action.token,
-        userId: action.user ? action.user.userId : null,
-        user: action.user,
+        userId: action.userId,
         error: null,
         loading: false,
     });
@@ -34,7 +32,7 @@ const authLogout = (state: AuthStoreState) => {
     });
 };
 
-type AuthReducerActions = {
+export type Actions = {
     type: string;
     payload: Payload;
 };
@@ -43,10 +41,10 @@ type Payload = {
     error?: string | null;
     path?: string;
     token?: string;
-    user?: User;
+    userId?: string;
 };
 
-const authReducer = (state: AuthStoreState = initialState, { type, payload }: AuthReducerActions) => {
+const authReducer = (state: AuthStoreState = initialState, { type, payload }: Actions) => {
     switch (type) {
         case actionTypes.AUTH_START:
             return UpdateObject(state, { error: null, loading: true });

@@ -29,6 +29,7 @@ const StylesImg = styled.img<StyledImgProps>`
 type Props = {
     image?: string;
     aligned: string;
+    isClickable?: boolean;
     clicked: (event: React.MouseEvent<HTMLElement>) => void;
 };
 
@@ -37,7 +38,15 @@ const ProfilePicture: React.FC<Props> = props => {
     const images = require.context('../../../assets/images/profilePictures', true);
     const image = images('./' + imageName);
 
-    return <StylesImg src={image} alt="Your profile" aligned={props.aligned} onClick={props.clicked} />;
+    return (
+        <StylesImg
+            src={image}
+            alt="Your profile"
+            isClickable={props.isClickable}
+            aligned={props.aligned}
+            onClick={props.clicked}
+        />
+    );
 };
 
 export default ProfilePicture;

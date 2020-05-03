@@ -1,6 +1,7 @@
 import Axios from '../../services/Axios/AxiosConfig';
 import { call, delay, put } from 'redux-saga/effects';
 import * as actions from './Action';
+import * as userActions from './../user/Action';
 import { User } from '../../interfaces/User';
 
 type LogoutSageAction = {
@@ -68,7 +69,9 @@ export function* authUserSaga(action: AuthUserSagaAction) {
         yield localStorage.setItem('token', response.data.token);
         yield localStorage.setItem('expirationDate', expirationDate);
         yield localStorage.setItem('userId', response.data.user.userId.toString());
-        yield put(actions.authSuccess(user, response.data.token));
+
+        yield put(userActions.updateUserState(user));
+        yield put(actions.authSuccess(user.userId.toString(), response.data.token));
         yield put(actions.checkAuthTimeout(expiresIn));
     } catch (error) {
         yield put(actions.authFail(error.response.data.error));
@@ -136,7 +139,8 @@ function* authUserLoginWithId(userId: string) {
 
         const token = localStorage.getItem('token') || undefined;
 
-        yield put(actions.authSuccess(user, token));
+        yield put(userActions.updateUserState(user));
+        yield put(actions.authSuccess(user.userId.toString(), token));
         yield put(actions.checkAuthTimeout(expiresIn));
     } catch (error) {
         yield put(actions.authFail(error.response.data.error));

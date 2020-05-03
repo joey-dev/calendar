@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import LoginTemplate from '../../atomic/templates/login/LoginTemplate';
-import { AnyInputOnChange, FormOnSubmit } from '../../interfaces/formTypes/FormEvents';
-import { AuthStoreState } from '../../store/auth/Index';
-import { auth, setAuthRedirectPath } from '../../store/auth/Action';
+import LoginTemplate from '../../../atomic/templates/login/LoginTemplate';
+import { AnyInputOnChange, FormOnSubmit } from '../../../interfaces/formTypes/FormEvents';
+import { AuthStoreState } from '../../../store/auth/Index';
+import { auth, setAuthRedirectPath } from '../../../store/auth/Action';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import { MapStateToProps } from '../../../store';
 
 type UseLoginData = {
     email: string;
@@ -67,11 +68,7 @@ const Login: React.FC<Props> = (props: Props) => {
     );
 };
 
-type StateProps = {
-    auth: AuthStoreState;
-};
-
-const mapStateToProps = (state: StateProps) => {
+const mapStateToProps = (state: MapStateToProps) => {
     return {
         loading: state.auth.loading,
         error: state.auth.error,
