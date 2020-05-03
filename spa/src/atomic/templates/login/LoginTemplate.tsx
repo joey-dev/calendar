@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from '../../atoms/button/Button';
+import Button from '../../atoms/Button/Button';
 import FullInput from '../../modecules/input/FullInput';
 import { FormOnSubmit, InputTextOnChange, TextAreaOnChange } from '../../../interfaces/formTypes/FormEvents';
 import Loader from '../../atoms/Loader/Loader';

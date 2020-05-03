@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
-import Login from './components/pages/Login/Login';
-import Calendar from './components/pages/Calendar/Calendar';
+import Login from './pages/Login/Login';
+import Calendar from './pages/Calendar/Calendar';
 import Layout from './components/layouts/Layout/Layout';
 import { connect } from 'react-redux';
 import { authCheckState } from './store/auth/Action';

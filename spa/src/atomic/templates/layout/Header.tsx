@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ProfilePicture from '../../atoms/profile/ProfilePicture';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import Profile from '../../../components/modals/Profile/Profile';
+import Profile from '../../../pages/Profile/Profile';
 import { MapStateToProps } from '../../../store';
 
 const OuterDiv = styled.div`

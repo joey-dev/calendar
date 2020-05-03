@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import Loader from '../../../atomic/atoms/Loader/Loader';
-import CalendarTemplate from '../../../atomic/templates/calendar/CalendarTemplate';
-import { FormattedDate, FormattedMonthWithWeeks, FormattedWeek } from '../../../interfaces/Date';
+import Loader from '../../atomic/atoms/Loader/Loader';
+import CalendarTemplate from '../../atomic/templates/calendar/CalendarTemplate';
+import { FormattedDate, FormattedMonthWithWeeks, FormattedWeek } from '../../interfaces/Date';
 
 const Calendar: React.FC = () => {
     const [dates, setDates] = useState<FormattedMonthWithWeeks>([]);
