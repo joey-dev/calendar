@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const sideToBeAligned = (aligned: string): string => {
+const sideToBeAligned = (aligned?: string): string => {
     switch (aligned) {
         case 'right':
             return 'right';
@@ -15,22 +15,27 @@ const sideToBeAligned = (aligned: string): string => {
 };
 
 type StyledImgProps = {
-    aligned: string;
+    aligned?: string;
     isClickable?: boolean;
+    grid?: string;
+    width?: string;
 };
 
 const StylesImg = styled.img<StyledImgProps>`
-    width: 100px;
+    width: ${props => props.width || '100px' };
     border-radius: 20px;
     float: ${props => sideToBeAligned(props.aligned)};
     cursor: ${props => (props.isClickable ? 'pointer' : 'default')};
+    grid-area: ${props => props.grid}
 `;
 
 type Props = {
     image?: string;
-    aligned: string;
+    aligned?: string;
     isClickable?: boolean;
-    clicked: (event: React.MouseEvent<HTMLElement>) => void;
+    clicked?: (event: React.MouseEvent<HTMLElement>) => void;
+    grid?: string;
+    width?: string;
 };
 
 const ProfilePicture: React.FC<Props> = props => {
@@ -45,6 +50,8 @@ const ProfilePicture: React.FC<Props> = props => {
             isClickable={props.isClickable}
             aligned={props.aligned}
             onClick={props.clicked}
+            grid={props.grid}
+            width={props.width}
         />
     );
 };

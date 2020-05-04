@@ -33,14 +33,9 @@ const Header: React.FC<Props> = (props: Props) => {
         <React.Fragment>
             <OuterDiv>
                 <StyledH1>Hello, {props.username}</StyledH1>
-                <ProfilePicture aligned={'right'}
-                    clicked={openProfileHandler}
-                    isClickable
-                />
+                <ProfilePicture aligned={'right'} clicked={openProfileHandler} isClickable />
             </OuterDiv>
-            <Profile show={showProfile}
-                onClose={closeProfileHandler}
-            />
+            <Profile show={showProfile} onClose={closeProfileHandler} />
         </React.Fragment>
     );
 };

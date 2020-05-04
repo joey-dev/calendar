@@ -5,7 +5,7 @@ type ButtonTypes = 'submit' | 'button';
 
 type Props = {
     type?: ButtonTypes;
-    onClick?: () => void
+    onClick?: () => void;
 };
 
 const StyledButton = styled.button`

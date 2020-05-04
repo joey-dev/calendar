@@ -15,14 +15,7 @@ const Profile: React.FC<Props> = (props: Props) => {
         console.log('form submitted');
     };
 
-    return (
-        <FormModal onSubmit={onSubmitHandler}
-            onCancel={props.onClose}
-            show={props.show}
-        >
-
-        </FormModal>
-    );
+    return <FormModal onSubmit={onSubmitHandler} onCancel={props.onClose} show={props.show}></FormModal>;
 };
 
 const mapStateToProps = (state: MapStateToProps) => {

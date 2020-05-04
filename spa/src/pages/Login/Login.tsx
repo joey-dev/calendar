@@ -63,7 +63,7 @@ const Login: React.FC<Props> = (props: Props) => {
     return (
         <React.Fragment>
             {authRedirect}
-            <LoginTemplate onSubmit={onSubmitHandler} onInputChange={onInputChangeHandler} isLoading={props.loading} />
+            <LoginTemplate onSubmit={onSubmitHandler} onInputChange={onInputChangeHandler} isLoading={props.loading} values={user}/>
         </React.Fragment>
     );
 };
