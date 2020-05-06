@@ -102,7 +102,7 @@ export function* authCheckStateSaga(action: {}) {
     yield put(actions.authCheckStateFinish());
 }
 
-type UserResponse = {
+export type UserResponse = {
     data: UserResponseData;
 };
 

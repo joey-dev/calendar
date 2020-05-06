@@ -1,5 +1,5 @@
 import * as actionTypes from './ActionTypes';
-import { User } from '../../interfaces/User';
+import { OptionalUser, User } from '../../interfaces/User';
 
 export const updateUserState = (user: User) => {
     return {
@@ -7,5 +7,38 @@ export const updateUserState = (user: User) => {
         payload: {
             user,
         },
+    };
+};
+
+export const updateUserStart = (user: OptionalUser) => {
+    return {
+        type: actionTypes.UPDATE_USER_START,
+        payload: {
+            user,
+        },
+    };
+};
+
+export const updateUserFinish = (user: OptionalUser) => {
+    return {
+        type: actionTypes.UPDATE_USER_FINISH,
+        payload: {
+            user,
+        },
+    };
+};
+
+export const updateUserError = (error: string) => {
+    return {
+        type: actionTypes.UPDATE_USER_ERROR,
+        payload: {
+            error,
+        },
+    };
+};
+
+export const updateUserRemoveSuccess = () => {
+    return {
+        type: actionTypes.UPDATE_USER_REMOVE_SUCCESS,
     };
 };
