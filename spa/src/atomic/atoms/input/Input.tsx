@@ -21,7 +21,7 @@ type StyledTextareaProps = {
 };
 
 const StyledTextarea = styled.textarea<StyledTextareaProps>`
-    width: 100%;
+    width: 99%;
 `;
 
 type itemsToAddToInputProps = {
@@ -35,6 +35,8 @@ type Props = {
     name: string;
     id: string;
     changed: (event: InputTextOnChange | TextAreaOnChange) => void;
+    value: string;
+    placeholder?: string;
 };
 
 const Input: React.FC<Props> = props => {
@@ -61,9 +63,9 @@ const Input: React.FC<Props> = props => {
 
     const input =
         inputType === 'input' ? (
-            <StyledInput type={props.inputType} {...itemsToAddToInput} />
+            <StyledInput type={props.inputType} {...itemsToAddToInput} value={props.value} placeholder={props.placeholder || ''} />
         ) : (
-            <StyledTextarea {...itemsToAddToInput} />
+            <StyledTextarea {...itemsToAddToInput} placeholder={props.placeholder || ''} >{props.value}</StyledTextarea>
         );
 
     return <Fragment>{input}</Fragment>;

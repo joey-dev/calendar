@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const sideToBeAligned = (aligned: string): string => {
+const sideToBeAligned = (aligned?: string): string => {
     switch (aligned) {
         case 'right':
             return 'right';
@@ -15,29 +15,45 @@ const sideToBeAligned = (aligned: string): string => {
 };
 
 type StyledImgProps = {
-    aligned: string;
+    aligned?: string;
     isClickable?: boolean;
+    grid?: string;
+    width?: string;
 };
 
 const StylesImg = styled.img<StyledImgProps>`
-    width: 100px;
+    width: ${props => props.width || '100px' };
     border-radius: 20px;
     float: ${props => sideToBeAligned(props.aligned)};
     cursor: ${props => (props.isClickable ? 'pointer' : 'default')};
+    grid-area: ${props => props.grid}
 `;
 
 type Props = {
     image?: string;
-    aligned: string;
-    clicked: (event: React.MouseEvent<HTMLElement>) => void;
+    aligned?: string;
+    isClickable?: boolean;
+    clicked?: (event: React.MouseEvent<HTMLElement>) => void;
+    grid?: string;
+    width?: string;
 };
 
 const ProfilePicture: React.FC<Props> = props => {
-    const imageName = props.image ? props.image : 'noPicture.jpeg';
+    const imageName = props.image || 'noPicture.jpeg';
     const images = require.context('../../../assets/images/profilePictures', true);
     const image = images('./' + imageName);
 
-    return <StylesImg src={image} alt="Your profile" aligned={props.aligned} onClick={props.clicked} />;
+    return (
+        <StylesImg
+            src={image}
+            alt="Your profile"
+            isClickable={props.isClickable}
+            aligned={props.aligned}
+            onClick={props.clicked}
+            grid={props.grid}
+            width={props.width}
+        />
+    );
 };
 
 export default ProfilePicture;

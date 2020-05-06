@@ -5,6 +5,7 @@ import { AuthStoreState } from '../../store/auth/Index';
 import { auth, setAuthRedirectPath } from '../../store/auth/Action';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import { MapStateToProps } from '../../store';
 
 type UseLoginData = {
     email: string;
@@ -62,16 +63,12 @@ const Login: React.FC<Props> = (props: Props) => {
     return (
         <React.Fragment>
             {authRedirect}
-            <LoginTemplate onSubmit={onSubmitHandler} onInputChange={onInputChangeHandler} isLoading={props.loading} />
+            <LoginTemplate onSubmit={onSubmitHandler} onInputChange={onInputChangeHandler} isLoading={props.loading} values={user}/>
         </React.Fragment>
     );
 };
 
-type StateProps = {
-    auth: AuthStoreState;
-};
-
-const mapStateToProps = (state: StateProps) => {
+const mapStateToProps = (state: MapStateToProps) => {
     return {
         loading: state.auth.loading,
         error: state.auth.error,

@@ -6,7 +6,7 @@ export const authStart = () => {
     };
 };
 
-export const authSuccess = (token: string, userId: string) => {
+export const authSuccess = (userId: string, token?: string) => {
     return {
         type: actionTypes.AUTH_SUCCESS,
         payload: {
@@ -69,5 +69,17 @@ export const setAuthRedirectPath = (path: string) => {
 export const authCheckState = () => {
     return {
         type: actionTypes.AUTH_CHECK_STATE,
+    };
+};
+
+export const authCheckStateStart = () => {
+    return {
+        type: actionTypes.AUTH_CHECK_STATE_START,
+    };
+};
+
+export const authCheckStateFinish = () => {
+    return {
+        type: actionTypes.AUTH_CHECK_STATE_FINISH,
     };
 };

@@ -10,15 +10,14 @@ const ldsDualRingKeyframe = keyframes`
       }
 `;
 
-const centered = 'translate(calc(50% - 40px), calc(50% - 40px)';
-
 type StyledDivProps = {
     centered?: boolean;
 };
 
 const StyledSpan = styled.span<StyledDivProps>`
-    position: ${props => (props.centered ? 'relative' : 'unset')};
-    transform: ${props => (props.centered ? centered : null)};
+    position: ${props => (props.centered ? 'absolute' : 'unset')};
+    left: calc(50% - 32px);
+    top: 30%;
 `;
 
 type StyledLoaderProps = {

@@ -7,6 +7,7 @@ const initialState: AuthStoreState = {
     userId: null,
     error: null,
     loading: false,
+    isAutoSigningUp: false,
     authRedirectPath: '/',
 };
 
@@ -16,11 +17,9 @@ type AuthSuccessActions = {
 };
 
 const authSuccess = (state: AuthStoreState, action: AuthSuccessActions) => {
-    console.log(state);
-    console.log(action);
     return UpdateObject(state, {
         token: action.token,
-        userId: action.token,
+        userId: action.userId,
         error: null,
         loading: false,
     });
@@ -33,7 +32,7 @@ const authLogout = (state: AuthStoreState) => {
     });
 };
 
-type AuthReducerActions = {
+export type Actions = {
     type: string;
     payload: Payload;
 };
@@ -45,19 +44,22 @@ type Payload = {
     userId?: string;
 };
 
-const authReducer = (state: AuthStoreState = initialState, { type, payload }: AuthReducerActions) => {
+const authReducer = (state: AuthStoreState = initialState, { type, payload }: Actions) => {
     switch (type) {
         case actionTypes.AUTH_START:
             return UpdateObject(state, { error: null, loading: true });
         case actionTypes.AUTH_FAIL:
             return UpdateObject(state, { error: payload.error, loading: false });
         case actionTypes.AUTH_SUCCESS:
-            console.log(payload);
             return authSuccess(state, payload);
         case actionTypes.AUTH_LOGOUT:
             return authLogout(state);
         case actionTypes.SET_AUTH_REDIRECT_PATH:
             return UpdateObject(state, { authRedirectPath: payload.path });
+        case actionTypes.AUTH_CHECK_STATE_START:
+            return UpdateObject(state, { isAutoSigningUp: true });
+        case actionTypes.AUTH_CHECK_STATE_FINISH:
+            return UpdateObject(state, { isAutoSigningUp: false });
         default:
             return state;
     }

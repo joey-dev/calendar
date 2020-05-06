@@ -5,44 +5,42 @@ import Calendar from './pages/Calendar/Calendar';
 import Layout from './components/layouts/Layout/Layout';
 import { connect } from 'react-redux';
 import { authCheckState } from './store/auth/Action';
-import { AuthStoreState } from './store/auth/Index';
+import Loader from './atomic/atoms/Loader/Loader';
+import { MapStateToProps } from './store';
 
 type Props = {
     onTryAutoSignUp: () => void;
     isAuthenticated: boolean;
+    isAutoSigningUp: boolean;
 };
 
 const App: React.FC<Props> = (props: Props) => {
     const { onTryAutoSignUp } = props;
 
     useEffect(() => {
+        console.log('[app] useeffect run');
         onTryAutoSignUp();
     }, [onTryAutoSignUp]);
 
-    return (
-        <Layout>
-            {props.isAuthenticated ? (
-                <Switch>
-                    <Route path="/login" exact component={Login} />
-                    <Route path="/" exact component={Calendar} />
-                </Switch>
-            ) : (
-                <Switch>
-                    <Route path="/login" exact component={Login} />
-                    <Redirect to="/login" />
-                </Switch>
-            )}
-        </Layout>
+    const routes = props.isAuthenticated ? (
+        <Switch>
+            <Route path="/login" exact component={Login} />
+            <Route path="/" exact component={Calendar} />
+        </Switch>
+    ) : (
+        <Switch>
+            <Route path="/login" exact component={Login} />
+            <Redirect to="/login" />
+        </Switch>
     );
+
+    return <Layout>{props.isAutoSigningUp ? <Loader centered={true} /> : routes}</Layout>;
 };
 
-type StateProps = {
-    auth: AuthStoreState;
-};
-
-const mapStateToProps = (state: StateProps) => {
+const mapStateToProps = (state: MapStateToProps) => {
     return {
         isAuthenticated: state.auth.userId !== null,
+        isAutoSigningUp: state.auth.isAutoSigningUp,
     };
 };
 
