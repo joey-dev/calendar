@@ -7,6 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
@@ -14,9 +15,15 @@ use Symfony\Component\Validator\Constraints as Assert;
  *     itemOperations={
  *          "get" ={
  *              "access_control"="object.getEmail() === user.getEmail()"
- *          }
+ *          },
+ *          "patch" ={
+ *              "access_control"="object.getEmail() === user.getEmail()"
+ *          },
  *     },
  *     collectionOperations={},
+ *     normalizationContext={
+ *          "groups"={"read"}
+ *     }
  * )
  * @UniqueEntity(fields={"username"})
  * @UniqueEntity(fields={"email"})
@@ -27,26 +34,31 @@ class User implements UserInterface
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups({"read"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"read"})
      */
     private $username;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"read"})
      */
     private $email;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"read"})
      */
     private $firstName;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"read"})
      */
     private $lastName;
 
@@ -54,8 +66,8 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=255)
      * @Assert\NotBlank()
      * @Assert\Regex(
-     *     pattern="/(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{7,}/",
-     *     message="Password must be atleast seven characters long and contain one didget, one upper letter and lover case letter"
+     *     pattern="/(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{6,}/",
+     *     message="Password must be atleast six characters long and contain one didget, one upper letter and lower case letter"
      * )
      */
     private $password;
