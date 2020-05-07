@@ -20,7 +20,10 @@ use Symfony\Component\Serializer\Annotation\Groups;
  *              "access_control"="object.getEmail() === user.getEmail()"
  *          },
  *     },
- *     collectionOperations={"get"},
+ *     collectionOperations={},
+ *     normalizationContext={
+ *          "groups"={"read"}
+ *     }
  * )
  * @UniqueEntity(fields={"username"})
  * @UniqueEntity(fields={"email"})
