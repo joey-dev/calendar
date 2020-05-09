@@ -43,7 +43,7 @@ class AppFixtures extends Fixture
         $user->setEmail("joeystil3@gmail.com");
         $user->setPassword($this->userPasswordEncoder->encodePassword(
             $user,
-            "test123"
+            "Tester123"
         ));
 
         return $user;

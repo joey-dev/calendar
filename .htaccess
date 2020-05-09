@@ -4,6 +4,9 @@ Options -MultiViews
 	RewriteCond %{REQUEST_URI} ^/api
 	RewriteRule ^ api/public/ [QSA,L]
 
+	RewriteCond %{REQUEST_URI} ^/images
+	RewriteRule ^ api/public/ [QSA,L]
+
     RewriteCond %{REQUEST_FILENAME} !-f
 	RewriteCond %{REQUEST_URI} !^/api
     RewriteRule ^ index.html [QSA,L]
