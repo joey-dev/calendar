@@ -74,11 +74,10 @@ class User implements UserInterface
     private $password;
 
     /**
-     * @ORM\ManyToOne(targetEntity=MediaObject::class)
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\ManyToOne(targetEntity="App\Entity\MediaObject", cascade="persist")
      * @Groups({"read"})
      */
-    public $image;
+    private $mediaObject;
 
     public function getId(): ?int
     {
@@ -145,11 +144,6 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getImage(): ?MediaObject
-    {
-        return $this->image;
-    }
-
     public function getRoles()
     {
         return ['RULE_USER'];
@@ -163,5 +157,17 @@ class User implements UserInterface
     public function eraseCredentials()
     {
         return false;
+    }
+
+    public function getMediaObject(): ?MediaObject
+    {
+        return $this->mediaObject;
+    }
+
+    public function setMediaObject(?MediaObject $mediaObject): self
+    {
+        $this->mediaObject = $mediaObject;
+
+        return $this;
     }
 }

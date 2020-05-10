@@ -14,7 +14,6 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 /**
  * @ORM\Entity
  * @ApiResource(
- *     iri="http://schema.org/MediaObject",
  *     normalizationContext={
  *         "groups"={"media_object_read"}
  *     },
@@ -54,6 +53,7 @@ class MediaObject
     /**
      * @var int|null
      *
+     * @Groups({"media_object_read"})
      * @ORM\Column(type="integer")
      * @ORM\GeneratedValue
      * @ORM\Id
